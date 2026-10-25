@@ -225,7 +225,7 @@
 .cta { position: relative; overflow: hidden; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; }
 .cta__grid { position: absolute; inset: 0; }
 .cta__inner { position: relative; z-index: 1; }
-.cta__mark { width: min(100%, 640px); } /* the footer below carries the full-width mark */
+.cta__mark { width: clamp(160px, 30vw, 420px); }
 .cta__mark .logo { width: 100%; }
 .cta__title { max-width: 14ch; }
 .cta__links { display: flex; flex-wrap: wrap; gap: 16px 48px; font-size: var(--fs-lead); font-weight: 300; color: var(--text); }
