@@ -333,7 +333,7 @@ html.hide-ph .ph-tag { display: none; }
 .footer__title { color: var(--text); }
 .footer__contact { display: flex; flex-wrap: wrap; gap: 16px 48px; margin-top: 48px; font-size: var(--fs-lead); font-weight: 300; color: var(--text); }
 .footer__contact a, .footer__contact button { letter-spacing: -0.01em; }
-.footer__mark { margin-top: clamp(80px, 12vh, 140px); width: 100%; }
+.footer__mark { margin-top: clamp(80px, 12vh, 140px); width: clamp(160px, 32vw, 460px); }
 .footer__mark .logo { width: 100%; }
 .footer__bar {
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px;
