@@ -1,0 +1,84 @@
+/* tokens.css — design tokens and self-hosted font faces. Loaded first; everything else reads these variables. */
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("../assets/fonts/montserrat-latin-var.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("../assets/fonts/montserrat-latin-ext-var.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/instrument-serif-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/instrument-serif-regular.woff2") format("woff2");
+}
+
+:root {
+  /* Colour */
+  --bg: #0e0e0e;
+  --bg-raised: #151515;
+  --bg-band: #1a1a1a;
+  --line: rgba(255, 255, 255, 0.14);
+  --line-strong: rgba(255, 255, 255, 0.32);
+  --text: #ffffff;
+  --text-warm: #ecebe6;
+  --text-body: rgba(255, 255, 255, 0.78);
+  --text-mute: rgba(255, 255, 255, 0.56); /* 0.48 per brief fails 4.5:1 on #0e0e0e at small sizes; 0.56 passes */
+  --text-faint: rgba(255, 255, 255, 0.2);
+  --accent: #e8365d;
+
+  /* Type */
+  --font-sans: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Instrument Serif", "Times New Roman", serif;
+  --fs-hero: 13vw;
+  --fs-h1: clamp(3.4rem, 7vw, 9.5rem);
+  --fs-h2: clamp(2.4rem, 5vw, 6.8rem);
+  --fs-h3: clamp(1.4rem, 2vw, 2.4rem);
+  --fs-lead: clamp(1.25rem, 1.6vw, 1.75rem);
+  --fs-body: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+  --fs-label: 0.72rem;
+  --track-display: -0.05em;
+  --track-label: 0.18em;
+
+  /* Layout */
+  --container: 1440px;
+  --margin: clamp(20px, 4.2vw, 64px);
+  --gutter: 24px;
+  --section-pad: clamp(120px, 16vh, 220px);
+  --nav-h: 88px;
+
+  /* Radius */
+  --r-btn: 2px;
+  --r-media: 20px;
+
+  /* Motion (mirrored in js/utils.js as CustomEase curves) */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout: cubic-bezier(0.76, 0, 0.24, 1);
+  --dur: 1.2s;
+
+  /* Safe areas */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (min-width: 768px) {
+  :root { --fs-hero: clamp(3.4rem, 7.4vw, 8.75rem); }
+}

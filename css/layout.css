@@ -1,0 +1,195 @@
+/* layout.css — container, 12-col grid, sections and the signature devices (rules, "+" markers, counters, dot grids, bands, glow). */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--margin) * 2);
+  margin: 0 auto;
+  padding-left: calc(var(--margin) + env(safe-area-inset-left, 0px));
+  padding-right: calc(var(--margin) + env(safe-area-inset-right, 0px));
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+/* Mobile: everything spans full width; desktop placements kick in at 1024 */
+.grid > * { grid-column: 1 / -1; }
+@media (min-width: 1024px) {
+  .c-1-9  { grid-column: 1 / 10 !important; }
+  .c-1-8  { grid-column: 1 / 9 !important; }
+  .c-1-7  { grid-column: 1 / 8 !important; }
+  .c-1-6  { grid-column: 1 / 7 !important; }
+  .c-1-5  { grid-column: 1 / 6 !important; }
+  .c-2-10 { grid-column: 2 / 11 !important; }
+  .c-2-12 { grid-column: 2 / 13 !important; }
+  .c-1-12 { grid-column: 1 / 13 !important; }
+  .c-2-7  { grid-column: 2 / 8 !important; }
+  .c-2-6  { grid-column: 2 / 7 !important; }
+  .c-5-11 { grid-column: 5 / 12 !important; }
+  .c-6-12 { grid-column: 6 / 13 !important; }
+  .c-7-12 { grid-column: 7 / 13 !important; }
+  .c-7-11 { grid-column: 7 / 12 !important; }
+  .c-8-12 { grid-column: 8 / 13 !important; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .c-5-11, .c-6-12, .c-7-12, .c-7-11, .c-8-12 { grid-column: 3 / -1 !important; }
+}
+
+.section {
+  position: relative;
+  padding-top: var(--section-pad);
+  padding-bottom: var(--section-pad);
+}
+.section--tight { padding-top: calc(var(--section-pad) * 0.6); padding-bottom: calc(var(--section-pad) * 0.6); }
+.section + .section { border-top: 0; }
+
+.stack-sm > * + * { margin-top: 16px; }
+.stack > * + * { margin-top: 32px; }
+.stack-lg > * + * { margin-top: 64px; }
+.mt-s { margin-top: 24px; }
+.mt-m { margin-top: 48px; }
+.mt-l { margin-top: 96px; }
+.mt-xl { margin-top: clamp(96px, 14vh, 160px); }
+
+/* ---------- Vertical timeline rule ---------- */
+.rule-y {
+  position: absolute;
+  top: 0;
+  left: calc(var(--margin) * 0.5); /* sits in the gutter so it never cuts through display type */
+  width: 1px;
+  height: min(46%, 520px);
+  background: var(--line-strong);
+  transform-origin: top;
+  pointer-events: none;
+}
+@media (min-width: 1488px) {
+  .rule-y { left: calc((100vw - var(--container)) / 2 - 24px); }
+}
+.rule-x {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--line);
+  transform-origin: left;
+}
+
+/* ---------- "+" markers ---------- */
+.plus {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  color: var(--line-strong);
+}
+.plus::before, .plus::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+}
+.plus::before { left: 50%; top: 0; width: 1px; height: 100%; transform: translateX(-50%); }
+.plus::after  { top: 50%; left: 0; height: 1px; width: 100%; transform: translateY(-50%); }
+.plus--accent { color: var(--accent); width: 18px; height: 18px; }
+.plus--tl { top: 24px; left: var(--margin); }
+.plus--tr { top: 24px; right: var(--margin); }
+.plus--bl { bottom: 24px; left: var(--margin); }
+.plus--br { bottom: 24px; right: var(--margin); }
+
+/* ---------- Section counters ---------- */
+.counter {
+  position: absolute;
+  left: var(--margin);
+  bottom: 28px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.counter--with-plus { padding-left: 32px; }
+.counter--with-plus::before {
+  content: "+";
+  position: absolute; left: 0; top: 50%;
+  transform: translateY(-52%);
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: var(--text-mute);
+}
+
+/* ---------- Texture ---------- */
+.dots {
+  position: absolute;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1.2px);
+  background-size: 21px 21px;
+  -webkit-mask-image: radial-gradient(closest-side, #000 40%, transparent);
+  mask-image: radial-gradient(closest-side, #000 40%, transparent);
+}
+
+.glow {
+  position: absolute;
+  pointer-events: none;
+  width: 70vmax;
+  height: 70vmax;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0));
+}
+
+/* Large slashed diagonal bands behind the hero */
+.bands {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.band {
+  position: absolute;
+  background: var(--bg-band);
+  opacity: 0.85;
+  will-change: transform;
+}
+.band--a {
+  width: 44vw; height: 180vh;
+  left: 52%; top: -40vh;
+  transform: skewX(-32deg);
+}
+.band--b {
+  width: 22vw; height: 180vh;
+  left: 82%; top: -30vh;
+  transform: skewX(32deg);
+  opacity: 0.55;
+}
+.band--c {
+  width: 12vw; height: 140vh;
+  left: 30%; top: 10vh;
+  transform: skewX(-32deg);
+  opacity: 0.35;
+}
+
+/* Rotated vertical side label */
+.side-label {
+  position: absolute;
+  right: calc(var(--margin) - 4px);
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.side-label::before {
+  content: "";
+  width: 1px;
+  height: 88px;
+  background: var(--line-strong);
+}
+.side-label span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.5em;
+  color: var(--text-body);
+}
+@media (max-width: 767px) { .side-label { display: none; } }

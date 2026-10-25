@@ -1,0 +1,9 @@
+.DS_Store
+.claude/
+
+# Separate project / earlier experiments, not part of the site
+next-app/
+hero-parallax.html
+hero-parallax-react.html
+hero249.html
+krasis-logo.png
