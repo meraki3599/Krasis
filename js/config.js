@@ -8,9 +8,9 @@ window.KRASIS.config = {
   // EmailJS (emailjs.com): paste the three IDs from your EmailJS dashboard. These are meant to be public.
   // When all three are filled in, the contact form sends through EmailJS (see README → Contact form).
   emailjs: {
-    serviceId: "",   // Email Services → your Gmail service, e.g. "service_abc123"
-    templateId: "",  // Email Templates → your template, e.g. "template_xyz789"
-    publicKey: ""    // Account → General → Public Key
+    serviceId: "service_Krasis",      // Email Services → your Gmail service
+    templateId: "template_2ushekd",   // Email Templates → your template
+    publicKey: "VQbaMhEWsr4x7DzRM"    // Account → General → Public Key
   },
 
   // Alternative form endpoint (Formspree-style), used only if EmailJS isn't set up.
