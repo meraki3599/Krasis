@@ -1,6 +1,6 @@
 /*
-  form.js — contact form: inline validation, honeypot, submit to config.formEndpoint (Formspree-style JSON),
-  or a prefilled mailto: fallback when no endpoint is set. Success replaces the form with a thank-you state.
+  form.js — contact form: inline validation, honeypot, then sends via EmailJS (config.emailjs), or a
+  Formspree-style config.formEndpoint, or a prefilled mailto: fallback when neither is set. Success replaces the form with a thank-you state.
   Usage: K.form.mount(formEl, successEl)
   Depends on: utils.js, config.js.
 */
@@ -67,6 +67,22 @@
     return "mailto:" + K.config.email + "?subject=" + encodeURIComponent("New project enquiry from " + d.name) + "&body=" + encodeURIComponent(body);
   }
 
+  // EmailJS REST API first (no SDK needed), then a Formspree-style endpoint; null means use mailto
+  function buildRequest(d) {
+    var ej = K.config.emailjs || {};
+    if (ej.serviceId && ej.templateId && ej.publicKey) {
+      var params = {};
+      Object.keys(d).forEach(function (k) { params[k] = d[k] || "-"; });
+      params.reply_to = d.email;
+      return {
+        url: "https://api.emailjs.com/api/v1.0/email/send",
+        body: { service_id: ej.serviceId, template_id: ej.templateId, user_id: ej.publicKey, template_params: params }
+      };
+    }
+    if (K.config.formEndpoint) return { url: K.config.formEndpoint, body: d };
+    return null;
+  }
+
   function success(form, successEl, note) {
     var noteEl = successEl.querySelector("[data-success-note]");
     if (noteEl) noteEl.textContent = note || "";
@@ -107,18 +123,18 @@
       if (!v.ok) { v.first.focus(); status.textContent = "Please check the highlighted fields."; return; }
 
       var data = collect(form);
-      var endpoint = K.config.formEndpoint;
-      if (!endpoint) {
+      var request = buildRequest(data);
+      if (!request) {
         window.location.href = mailto(data);
         success(form, successEl, "Your email app should have opened with the message ready to send.");
         return;
       }
       submit.disabled = true;
       submit.querySelector("span:not(.btn__dot)").textContent = "Sending";
-      fetch(endpoint, {
+      fetch(request.url, {
         method: "POST",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+        body: JSON.stringify(request.body)
       }).then(function (res) {
         if (!res.ok) throw new Error("Bad response");
         success(form, successEl);

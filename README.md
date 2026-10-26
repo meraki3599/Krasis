@@ -67,15 +67,45 @@ A missing file shows a dashed slot labelled `Add assets/logos/<file>`. The site 
 
 Client logos turn monochrome via a CSS `filter` set per project (`logoFilter` in `projects.js`). The artwork itself is never edited.
 
-## Contact form
+## Contact form (EmailJS)
 
-Set your endpoint in `js/config.js`:
+The form sends enquiries to your inbox through [EmailJS](https://www.emailjs.com). Until the three IDs below are filled in, submitting opens the visitor's email app with a prefilled message instead, so the form never breaks.
+
+**One-time setup on emailjs.com** (the free plan allows 200 emails a month):
+
+1. **Email Services → Add New Service → Gmail.** Connect contactkrasis@gmail.com. Copy the **Service ID**.
+2. **Email Templates → Create New Template.**
+   - **Subject:** `New project enquiry from {{name}}`
+   - **To Email:** `contactkrasis@gmail.com`
+   - **Reply To:** `{{reply_to}}` (so hitting Reply answers the client)
+   - **Content:**
+     ```
+     Name: {{name}}
+     Email: {{email}}
+     Business / brand: {{brand}}
+     What they need: {{needs}}
+     Plan: {{plan}}
+     Budget and timeline: {{budget}}
+
+     {{message}}
+     ```
+   Save, then copy the **Template ID**.
+3. **Account → General.** Copy the **Public Key**.
+4. **Account → Security.** Under allowed origins, add `https://meraki3599.github.io` so nobody else can send with your keys.
+
+Then paste the three values into `js/config.js`:
 
 ```js
-formEndpoint: "https://formspree.io/f/xxxxxxx"
+emailjs: {
+  serviceId: "service_…",
+  templateId: "template_…",
+  publicKey: "…"
+},
 ```
 
-The form posts JSON to that endpoint. While the endpoint is empty, submitting opens the visitor's email app with a prefilled message to contactkrasis@gmail.com instead. A hidden honeypot field (`website`) silently drops bot submissions.
+These IDs are designed to be public, so it's fine for them to be in the code. A hidden honeypot field (`website`) silently drops bot submissions. If EmailJS ever fails, the visitor sees an error with a "send it by email instead" link.
+
+(A Formspree-style `formEndpoint` in `config.js` still works as an alternative if you leave the EmailJS IDs empty.)
 
 ## Deploy
 
@@ -100,7 +130,7 @@ These are marked in the UI with a dashed **Replace** tag or a grid placeholder (
 2. **Project categories and types:** Home Decor and Luminae are set to Retail as best guesses. Confirm them.
 3. **Founder photos and names:** the About page has two founder slots (`js/pages/about.js`). Remove one if you're a solo founder.
 4. **Reply line:** `replyLine` in `config.js` ("We reply within 24 hours").
-5. **Form endpoint:** `formEndpoint` in `config.js`.
+5. **EmailJS IDs:** `emailjs` in `config.js` (see Contact form above).
 6. **Domain:** `siteUrl`, `sitemap.xml`, `robots.txt` and the OG image URL.
 
 ## Notes on decisions
