@@ -171,7 +171,7 @@
   border-radius: var(--r-media);
   transition: border-color 0.6s;
 }
-.wcard__logo .logo { display: grid; place-items: center; width: 100%; will-change: transform; }
+.wcard__logo .logo { display: grid; place-items: center; width: 100%; }
 .wcard__logo img {
   height: clamp(72px, min(13vw, 24vh), 230px);
   width: auto; max-width: 62%;

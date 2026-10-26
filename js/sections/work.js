@@ -70,7 +70,7 @@
         var fill = K.$(".wprog__bar i", hs);
         var count = K.$(".wprog__count", hs);
         var total = K.pad(cards.length);
-        var slide = gsap.to(track, {
+        gsap.to(track, {
           x: function () { return -dist(); },
           ease: "none",
           scrollTrigger: {
@@ -81,13 +81,6 @@
               count.textContent = K.pad(Math.min(cards.length, Math.round(self.progress * (cards.length - 1)) + 1)) + " / " + total;
             }
           }
-        });
-        // Logos drift slightly against the slide for depth
-        K.$$(".wcard__logo .logo", hs).forEach(function (logo) {
-          gsap.fromTo(logo, { xPercent: 12 }, {
-            xPercent: -12, ease: "none",
-            scrollTrigger: { trigger: logo.closest(".wcard"), containerAnimation: slide, start: "left right", end: "right left", scrub: true }
-          });
         });
         return function () { hs.classList.remove("is-pinned"); };
       });
