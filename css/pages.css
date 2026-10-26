@@ -136,28 +136,25 @@
   width: max-content;
 }
 
-/* First panel: the giant title */
+/* Heading row above the strip */
 .wintro {
-  flex: none;
-  width: min(86vw, 1100px);
-  display: flex; flex-direction: column; justify-content: center;
-  padding-right: clamp(24px, 6vw, 120px);
-  scroll-snap-align: start;
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+  gap: 16px 48px;
+  margin-bottom: clamp(24px, 4vh, 48px);
 }
 .wintro__title {
-  font-size: clamp(4rem, 15vw, 15rem);
+  font-size: clamp(3rem, min(9vw, 13vh), 9.5rem);
   font-weight: 300;
-  letter-spacing: -0.065em;
-  line-height: 0.88;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
   color: var(--text);
-  white-space: nowrap;
 }
-.wintro__sub { margin-top: 32px; max-width: 30ch; }
-.wintro__hint { margin-top: 40px; display: flex; gap: 12px; align-items: center; }
+.wintro__side { max-width: 34ch; padding-bottom: 0.4em; }
+.wintro__hint { margin-top: 16px; display: flex; gap: 12px; align-items: center; }
 .wintro__hint span { display: inline-block; animation: nudge 2.2s var(--ease-inout) infinite; }
 
 /* Client cards: supplied logo on a raised panel */
-.wcard { flex: none; width: clamp(260px, 30vw, 440px); scroll-snap-align: start; transition: opacity 0.6s var(--ease-out); }
+.wcard { flex: none; width: clamp(200px, min(26vw, 33vh), 400px); /* height-aware so heading + strip fit one screen */ scroll-snap-align: start; transition: opacity 0.6s var(--ease-out); }
 .wcard__link { display: flex; flex-direction: column; height: 100%; }
 .wcard__logo {
   display: grid; place-items: center;
@@ -177,7 +174,6 @@
 .wcard__type { margin-top: 8px; padding-left: 36px; }
 .hscroll__track.is-hovering .wcard { opacity: 0.35; }
 .hscroll__track.is-hovering .wcard.is-hover { opacity: 1; }
-@media (max-height: 760px) and (min-width: 768px) { .wcard__logo { aspect-ratio: 1 / 1; } }
 
 /* ======================= HOME 06 · PROCESS ======================= */
 .process__aside { position: relative; }

@@ -1,7 +1,7 @@
 /*
   sections/work.js — Home section 05, "Our work".
-  One pinned strip that scrolls sideways (scrubbed) at every screen size: the giant "OUR WORK" title and
-  subtitle, then one large card per client built from the supplied logo (monochrome via CSS filter).
+  The "OUR WORK" title and subtitle sit above a strip that scrolls sideways (pinned + scrubbed) at every
+  screen size, with one large card per client built from the supplied logo (monochrome via CSS filter).
   Hovering a card dims the others. With reduced motion the strip is a native swipe row with snap.
   Depends on: GSAP, ScrollTrigger, utils.js, ui.js, data/projects.js, data/copy.js.
 */
@@ -27,12 +27,14 @@
       var ordered = K.projects.filter(function (p) { return p.lead; }).concat(K.projects.filter(function (p) { return !p.lead; }));
       return '<section class="work" aria-labelledby="work-title" data-hscroll>' +
         K.ui.rule() +
-        '<div class="hscroll__viewport"><ul class="hscroll__track">' +
-        '<li class="wintro">' +
+        // Heading sits above the strip and stays put while the cards slide
+        '<div class="wintro container">' +
         '<h2 class="wintro__title upper" id="work-title" data-anim="lines">' + K.esc(c.title) + "</h2>" +
+        '<div class="wintro__side">' +
         '<p class="lead wintro__sub" data-anim="fade">' + K.esc(c.subtitle) + "</p>" +
         '<p class="label wintro__hint" aria-hidden="true">Scroll <span>→</span></p>' +
-        "</li>" +
+        "</div></div>" +
+        '<div class="hscroll__viewport"><ul class="hscroll__track">' +
         ordered.map(card).join("") +
         "</ul></div>" +
         K.ui.counter(5) +
