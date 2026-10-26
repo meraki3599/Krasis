@@ -11,12 +11,15 @@
   function card(p, i) {
     return '<li class="wcard">' +
       '<div class="wcard__link">' +
-      '<div class="wcard__logo">' + K.ui.logo(p.logo, p.fullName, { filter: p.logoFilter, lazy: true }) + "</div>" +
-      '<div class="wcard__meta">' +
-      '<span class="label">' + K.pad(i + 1) + "</span>" +
-      '<h3 class="wcard__name h3">' + K.esc(p.fullName) + "</h3>" +
+      '<div class="wcard__logo">' +
+      '<span class="wcard__n label" aria-hidden="true">' + K.pad(i + 1) + "</span>" +
+      '<span class="wcard__cat label">' + K.esc(p.category) + "</span>" +
+      K.ui.logo(p.logo, p.fullName, { filter: p.logoFilter, lazy: true }) +
       "</div>" +
+      '<div class="wcard__meta">' +
+      '<h3 class="wcard__name h3">' + K.esc(p.fullName) + "</h3>" +
       '<p class="wcard__type label">' + K.esc(K.txt(p.type)) + "</p>" +
+      "</div>" +
       "</div></li>";
   }
 
@@ -37,6 +40,8 @@
         '<div class="hscroll__viewport"><ul class="hscroll__track">' +
         ordered.map(card).join("") +
         "</ul></div>" +
+        '<div class="wprog container" aria-hidden="true"><span class="wprog__bar"><i></i></span>' +
+        '<span class="wprog__count label">01 / ' + K.pad(ordered.length) + "</span></div>" +
         K.ui.counter(5) +
         "</section>";
     },
@@ -62,13 +67,27 @@
       K.media("(prefers-reduced-motion: no-preference)", function () {
         hs.classList.add("is-pinned");
         function dist() { return Math.max(0, track.scrollWidth - viewport.clientWidth); }
-        gsap.to(track, {
+        var fill = K.$(".wprog__bar i", hs);
+        var count = K.$(".wprog__count", hs);
+        var total = K.pad(cards.length);
+        var slide = gsap.to(track, {
           x: function () { return -dist(); },
           ease: "none",
           scrollTrigger: {
             trigger: hs, start: "top top", end: function () { return "+=" + dist(); },
-            pin: true, scrub: 0.6, invalidateOnRefresh: true, anticipatePin: 1
+            pin: true, scrub: 0.6, invalidateOnRefresh: true, anticipatePin: 1,
+            onUpdate: function (self) {
+              gsap.set(fill, { scaleX: self.progress });
+              count.textContent = K.pad(Math.min(cards.length, Math.round(self.progress * (cards.length - 1)) + 1)) + " / " + total;
+            }
           }
+        });
+        // Logos drift slightly against the slide for depth
+        K.$$(".wcard__logo .logo", hs).forEach(function (logo) {
+          gsap.fromTo(logo, { xPercent: 12 }, {
+            xPercent: -12, ease: "none",
+            scrollTrigger: { trigger: logo.closest(".wcard"), containerAnimation: slide, start: "left right", end: "right left", scrub: true }
+          });
         });
         return function () { hs.classList.remove("is-pinned"); };
       });
