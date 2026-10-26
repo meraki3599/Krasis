@@ -1,8 +1,8 @@
 /*
   sections/work.js — Home section 05, "Our work".
-  One pinned strip that scrolls sideways (scrubbed) on desktop: the giant "OUR WORK" title and subtitle,
-  then one large card per client built from the supplied logo (monochrome via CSS filter). Hovering a card
-  dims the others. On mobile / reduced motion the strip is a native swipe row with snap.
+  One pinned strip that scrolls sideways (scrubbed) at every screen size: the giant "OUR WORK" title and
+  subtitle, then one large card per client built from the supplied logo (monochrome via CSS filter).
+  Hovering a card dims the others. With reduced motion the strip is a native swipe row with snap.
   Depends on: GSAP, ScrollTrigger, utils.js, ui.js, data/projects.js, data/copy.js.
 */
 (function (K) {
@@ -56,7 +56,8 @@
         scrollTrigger: { trigger: hs, start: "top 75%", once: true }
       });
 
-      K.media(K.MQ_MOTION, function () {
+      // Scroll-driven sideways movement on every screen size; only reduced motion falls back to swiping
+      K.media("(prefers-reduced-motion: no-preference)", function () {
         hs.classList.add("is-pinned");
         function dist() { return Math.max(0, track.scrollWidth - viewport.clientWidth); }
         gsap.to(track, {
@@ -70,7 +71,7 @@
         return function () { hs.classList.remove("is-pinned"); };
       });
 
-      K.media(K.MQ_STATIC, function () {
+      K.media("(prefers-reduced-motion: reduce)", function () {
         viewport.setAttribute("data-cursor", "Drag");
         return function () { viewport.removeAttribute("data-cursor"); };
       });
