@@ -40,8 +40,7 @@
     ],
 
     hero: {
-      lines: ["Get your website", "the right way:", "the", "[logo]", "way"],
-      side: "Team Krasis"
+      lines: ["Get your website", "the right way:", "the", "[logo]", "way"]
     },
 
     problem: {

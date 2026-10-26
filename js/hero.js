@@ -34,9 +34,7 @@
       '<div class="hero__stage" aria-hidden="true">' + row("hero__row--a") + row("hero__row--b") + row("hero__row--a") + "</div>" +
       '<div class="hero__fold" aria-hidden="true">' +
       K.ui.plus("plus--accent hero__plus") +
-      '<div class="side-label"><span>' + K.esc(c.side.toUpperCase()) + "</span></div>" +
       K.ui.counter(1, 10, "counter--with-plus") +
-      '<div class="scroll-cue label"><span>Scroll</span><i></i></div>' +
       "</div>" +
       "</section>";
   }

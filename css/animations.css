@@ -1,13 +1,6 @@
 /* animations.css — CSS-only motion (keyframes) and reduced-motion overrides. Scroll choreography lives in JS (GSAP). */
 
-@keyframes cue {
-  0%   { transform: translateY(-100%); }
-  55%  { transform: translateY(0); }
-  100% { transform: translateY(100%); }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .scroll-cue i::after { animation: none; transform: none; }
   .srow__title, .wrow__name, .cs-next__name, .menu__link { transition: none !important; }
   .srow:hover .srow__title, .wrow.is-hover .wrow__name { transform: none; }
 }
