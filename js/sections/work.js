@@ -1,34 +1,23 @@
 /*
   sections/work.js — Home section 05, "Our work".
-  1) Logo wall of the supplied client logos (monochrome via CSS filter), slow staggered fade-in;
-     hovering one dims the rest and shows its project type.
-  2) Horizontal project scroller: pinned + scrubbed on desktop, native swipe with snap on mobile.
+  One pinned strip that scrolls sideways (scrubbed) on desktop: the giant "OUR WORK" title and subtitle,
+  then one large card per client built from the supplied logo (monochrome via CSS filter). Hovering a card
+  dims the others. On mobile / reduced motion the strip is a native swipe row with snap.
   Depends on: GSAP, ScrollTrigger, utils.js, ui.js, data/projects.js, data/copy.js.
 */
 (function (K) {
   K.sections = K.sections || {};
 
-  function wall() {
-    return K.projects.map(function (p) {
-      return '<li class="lwall__item">' +
-        '<a class="lwall__link" href="#/work/' + p.slug + '" data-cursor="View case study" aria-label="' + K.esc(p.fullName) + ', view case study">' +
-        K.ui.logo(p.logo, p.fullName, { cls: "lwall__logo", filter: p.logoFilter, lazy: true }) +
-        '<span class="lwall__type label">' + K.esc(K.txt(p.type)) + "</span>" +
-        "</a></li>";
-    }).join("");
-  }
-
   function card(p, i) {
-    return '<article class="pcard">' +
-      '<a class="pcard__link" href="#/work/' + p.slug + '" data-cursor="View">' +
-      '<div class="pcard__media">' + K.ui.devices(p) + "</div>" +
-      '<div class="pcard__meta">' +
+    return '<li class="wcard">' +
+      '<a class="wcard__link" href="#/work/' + p.slug + '" data-cursor="View case study" aria-label="' + K.esc(p.fullName) + ', view case study">' +
+      '<div class="wcard__logo">' + K.ui.logo(p.logo, p.fullName, { filter: p.logoFilter, lazy: true }) + "</div>" +
+      '<div class="wcard__meta">' +
       '<span class="label">' + K.pad(i + 1) + "</span>" +
-      '<h3 class="pcard__name h3">' + K.esc(p.fullName) + "</h3>" +
-      '<span class="label">' + K.phText(p.year) + "</span>" +
+      '<h3 class="wcard__name h3">' + K.esc(p.fullName) + "</h3>" +
       "</div>" +
-      '<ul class="tags">' + p.services.map(function (s) { return '<li class="tag">' + K.esc(s) + "</li>"; }).join("") + "</ul>" +
-      "</a></article>";
+      '<p class="wcard__type label">' + K.esc(K.txt(p.type)) + "</p>" +
+      "</a></li>";
   }
 
   K.sections.work = {
@@ -36,39 +25,36 @@
       var c = K.copy.work;
       // Lead case studies (the cinematic hospitality sites) first
       var ordered = K.projects.filter(function (p) { return p.lead; }).concat(K.projects.filter(function (p) { return !p.lead; }));
-      return '<section class="section work" aria-labelledby="work-title">' +
+      return '<section class="work" aria-labelledby="work-title" data-hscroll>' +
         K.ui.rule() +
-        '<div class="container grid">' +
-        '<h2 class="h1 upper c-1-9" id="work-title" data-anim="lines">' + K.esc(c.title) + "</h2>" +
-        '<p class="lead c-6-12 mt-m" data-anim="fade">' + K.esc(c.subtitle) + "</p>" +
-        "</div>" +
-        '<div class="container"><ul class="lwall mt-l" data-lwall>' + wall() + "</ul></div>" +
-        '<div class="hscroll mt-xl" data-hscroll>' +
-        '<div class="hscroll__head container"><p class="label">Selected projects</p><p class="label hscroll__hint">Scroll</p></div>' +
-        '<div class="hscroll__viewport" data-cursor-mobile="Drag"><div class="hscroll__track">' + ordered.map(card).join("") + "</div></div>" +
-        "</div>" +
+        '<div class="hscroll__viewport"><ul class="hscroll__track">' +
+        '<li class="wintro">' +
+        '<h2 class="wintro__title upper" id="work-title" data-anim="lines">' + K.esc(c.title) + "</h2>" +
+        '<p class="lead wintro__sub" data-anim="fade">' + K.esc(c.subtitle) + "</p>" +
+        '<p class="label wintro__hint" aria-hidden="true">Scroll <span>→</span></p>' +
+        "</li>" +
+        ordered.map(card).join("") +
+        "</ul></div>" +
         K.ui.counter(5) +
         "</section>";
     },
 
     mount: function (root) {
-      var wallEl = K.$("[data-lwall]", root);
-      var items = K.$$(".lwall__item", wallEl);
-
-      // Slow staggered fade-in
-      gsap.fromTo(items, { opacity: 0, y: K.flags.reduced ? 0 : 20 }, {
-        opacity: 1, y: 0, duration: 1.4, stagger: 0.12,
-        scrollTrigger: { trigger: wallEl, start: "top 85%", once: true }
-      });
-      // Hover dims the rest
-      items.forEach(function (it) {
-        K.listen(it, "mouseenter", function () { wallEl.classList.add("is-hovering"); it.classList.add("is-hover"); });
-        K.listen(it, "mouseleave", function () { wallEl.classList.remove("is-hovering"); it.classList.remove("is-hover"); });
-      });
-
       var hs = K.$("[data-hscroll]", root);
       var viewport = K.$(".hscroll__viewport", hs);
       var track = K.$(".hscroll__track", hs);
+      var cards = K.$$(".wcard", hs);
+
+      // Hover dims the other cards
+      cards.forEach(function (c) {
+        K.listen(c, "mouseenter", function () { track.classList.add("is-hovering"); c.classList.add("is-hover"); });
+        K.listen(c, "mouseleave", function () { track.classList.remove("is-hovering"); c.classList.remove("is-hover"); });
+      });
+
+      gsap.fromTo(cards, { opacity: 0, y: K.flags.reduced ? 0 : 30 }, {
+        opacity: 1, y: 0, duration: 1.4, stagger: 0.1,
+        scrollTrigger: { trigger: hs, start: "top 75%", once: true }
+      });
 
       K.media(K.MQ_MOTION, function () {
         hs.classList.add("is-pinned");

@@ -7,10 +7,9 @@
   K.pages = K.pages || {};
   var FILTERS = ["All", "Hospitality", "Retail", "Creative", "E-commerce"];
 
+  // Floating preview shows the supplied client logo
   function preview(p) {
-    return p.images.desktop
-      ? '<img src="./' + K.esc(p.images.desktop) + '" alt="">'
-      : '<div class="ph"><span class="ph__label">' + K.esc(p.name) + '</span><span class="ph__hint">Project screenshot goes here</span></div>';
+    return '<div class="wpreview__logo">' + K.ui.logo(p.logo, "", { filter: p.logoFilter }) + "</div>";
   }
 
   K.pages.work = {

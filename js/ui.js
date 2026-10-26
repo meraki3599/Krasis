@@ -54,19 +54,6 @@
       '<span class="btn__dot" aria-hidden="true"></span><span>' + esc(label) + "</span>" + ui.arrow() + "</a>";
   };
 
-  // ---------- Media placeholders ----------
-  ui.media = function (src, label, cls, alt) {
-    if (src) return '<img class="' + (cls || "") + '" src="./' + esc(src) + '" alt="' + esc(alt || "") + '" loading="lazy" decoding="async">';
-    return '<div class="ph ' + (cls || "") + '"><span class="ph__label">' + esc(label || "Project screenshot goes here") +
-      '</span><span class="ph__hint">Set the image path in js/data/projects.js</span></div>';
-  };
-  ui.devices = function (p) {
-    return '<div class="devices">' +
-      '<div class="laptop"><div class="laptop__screen">' + ui.media(p.images.desktop, "Project screenshot goes here", "", p.name + " website on desktop") + '</div><div class="laptop__base"></div></div>' +
-      '<div class="phone">' + ui.media(p.images.mobile, "Mobile screenshot", "", p.name + " website on mobile") + "</div>" +
-      "</div>";
-  };
-
   // ---------- Pricing panels ----------
   ui.plans = function (opts) {
     opts = opts || {};

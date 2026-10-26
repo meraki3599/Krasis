@@ -11,3 +11,8 @@
   .srow__title, .wrow__name, .cs-next__name, .menu__link { transition: none !important; }
   .srow:hover .srow__title, .wrow.is-hover .wrow__name { transform: none; }
 }
+
+@keyframes nudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(8px); }
+}

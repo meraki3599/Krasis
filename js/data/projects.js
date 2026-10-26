@@ -5,8 +5,6 @@
 
   To replace placeholders:
   - logo: drop the file at the path given (PNG or SVG; update the extension here if you use SVG).
-  - images.desktop / images.mobile / images.gallery: paths to real screenshots, e.g. "assets/images/1bhk-desktop.webp".
-    While empty, a marked placeholder is shown instead.
   - Every text field marked "placeholder: true" is shown with a dashed tag until you edit it and set the flag to false.
 */
 (function (K) {
@@ -25,7 +23,6 @@
       timeline: ph("Add timeline"),
       services: ["Design", "Development", "Scroll animation"],
       lead: true,
-      images: { desktop: "", mobile: "", gallery: [] },
       brief: ph("Placeholder brief: describe what 1BHK needed, who the audience is and what the old web presence was missing."),
       approach: ph("Placeholder approach: describe the creative direction, the scroll story and the key interactions you built."),
       details: [ph("Detail or result one"), ph("Detail or result two"), ph("Detail or result three")]
@@ -42,7 +39,6 @@
       timeline: ph("Add timeline"),
       services: ["Design", "Development", "Scroll animation"],
       lead: true,
-      images: { desktop: "", mobile: "", gallery: [] },
       brief: ph("Placeholder brief: describe what 2BHK needed, who the audience is and what the old web presence was missing."),
       approach: ph("Placeholder approach: describe the creative direction, the scroll story and the key interactions you built."),
       details: [ph("Detail or result one"), ph("Detail or result two"), ph("Detail or result three")]
@@ -59,7 +55,6 @@
       timeline: ph("Add timeline"),
       services: ["Design", "Development", "Scroll animation"],
       lead: true,
-      images: { desktop: "", mobile: "", gallery: [] },
       brief: ph("Placeholder brief: describe what Ballr needed, who the audience is and what the old web presence was missing."),
       approach: ph("Placeholder approach: describe the creative direction, the scroll story and the key interactions you built."),
       details: [ph("Detail or result one"), ph("Detail or result two"), ph("Detail or result three")]
@@ -76,24 +71,23 @@
       year: ph("2026"),
       timeline: ph("Add timeline"),
       services: ["Design", "Development", "Responsive build"],
-      images: { desktop: "", mobile: "", gallery: [] },
       brief: ph("Placeholder brief: describe what Home Decor needed, who the audience is and what the old web presence was missing."),
       approach: ph("Placeholder approach: describe the creative direction and the key pages you built."),
       details: [ph("Detail or result one"), ph("Detail or result two"), ph("Detail or result three")]
     },
     {
-      slug: "the-rewards-company",
-      name: "The Rewards Company",
-      fullName: "The Rewards Company",
-      logo: "assets/logos/the-rewards-company.png",
-      logoFilter: "grayscale(1) brightness(1.6)",
-      category: "Creative",
-      type: ph("Brand website"),
+      slug: "luminae",
+      name: "Luminae",
+      fullName: "Luminae",
+      logo: "assets/logos/luminae.png",
+      // The supplied artwork is dark on light; inverting turns it light on the black site
+      logoFilter: "grayscale(1) invert(1) brightness(0.92)",
+      category: "Retail",
+      type: ph("Candle brand website"),
       year: ph("2026"),
       timeline: ph("Add timeline"),
       services: ["Design", "Development"],
-      images: { desktop: "", mobile: "", gallery: [] },
-      brief: ph("Placeholder brief: describe what The Rewards Company needed, who the audience is and what the old web presence was missing."),
+      brief: ph("Placeholder brief: describe what Luminae needed, who the audience is and what the old web presence was missing."),
       approach: ph("Placeholder approach: describe the creative direction and the key pages you built."),
       details: [ph("Detail or result one"), ph("Detail or result two"), ph("Detail or result three")]
     }

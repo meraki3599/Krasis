@@ -62,7 +62,7 @@ All logos live in `assets/logos/`. The site only ever renders these files. It ne
 | `krasis.png` | supplied (cropped tight to the artwork) |
 | `krasis-square.png` | supplied original, used on the hero parallax cards |
 | `1bhk.png`, `2bhk.png`, `ballr.png`, `home-decor.png` | supplied |
-| `the-rewards-company.png` | **missing**: drop the file in with this exact name |
+| `luminae.png` | **missing**: drop the Luminae logo in with this exact name |
 
 A missing file shows a dashed slot labelled `Add assets/logos/<file>`. The site also logs one 404 per missing logo in the browser console until the file is added. To use an SVG instead, change the extension in `js/data/projects.js` (client logos) or `js/ui.js` (`ui.krasis`).
 
@@ -97,14 +97,13 @@ Before launch, update `siteUrl` in `js/config.js`, the URLs in `sitemap.xml` and
 
 These are marked in the UI with a dashed **Replace** tag or a grid placeholder (turn the tags off with `showPlaceholderTags: false` in `config.js` once done):
 
-1. **The Rewards Company logo:** `assets/logos/the-rewards-company.png`.
-2. **Project screenshots:** set `images.desktop`, `images.mobile` and `images.gallery` (3 entries) per project in `js/data/projects.js`. Put the files in `assets/images/` (WebP or AVIF, about 2400px wide for desktop).
-3. **Case study text:** `year`, `timeline`, `brief`, `approach` and `details` per project are placeholders (`placeholder: true`). Edit the text and set the flag to `false`.
-4. **Project categories and types:** Home Decor is set to Retail and The Rewards Company to Creative as best guesses. Confirm them.
-5. **Founder photos and names:** the About page has two founder slots (`js/pages/about.js`). Remove one if you're a solo founder.
-6. **Reply line:** `replyLine` in `config.js` ("We reply within 24 hours").
-7. **Form endpoint:** `formEndpoint` in `config.js`.
-8. **Domain:** `siteUrl`, `sitemap.xml`, `robots.txt` and the OG image URL.
+1. **Luminae logo:** `assets/logos/luminae.png`. A dark-on-white or dark-on-transparent PNG works; the site inverts it to light.
+2. **Case study text:** `year`, `timeline`, `brief`, `approach` and `details` per project are placeholders (`placeholder: true`). Edit the text and set the flag to `false`.
+3. **Project categories and types:** Home Decor and Luminae are set to Retail as best guesses. Confirm them.
+4. **Founder photos and names:** the About page has two founder slots (`js/pages/about.js`). Remove one if you're a solo founder.
+5. **Reply line:** `replyLine` in `config.js` ("We reply within 24 hours").
+6. **Form endpoint:** `formEndpoint` in `config.js`.
+7. **Domain:** `siteUrl`, `sitemap.xml`, `robots.txt` and the OG image URL.
 
 ## Notes on decisions
 

@@ -1,4 +1,4 @@
-/* components.css — shared pieces: preloader, nav, menu, transition, cursor, toast, buttons, logo slots, placeholders, star, devices, footer. */
+/* components.css — shared pieces: preloader, nav, menu, transition, cursor, toast, buttons, logo slots, placeholders, star, footer. */
 
 /* ---------- Logo element (renders supplied files only) ---------- */
 .logo { display: inline-block; line-height: 0; }
@@ -256,39 +256,6 @@ html.hide-ph .ph-tag { display: none; }
   transition: opacity 0.4s var(--ease-out), transform 0.6s var(--ease-out);
 }
 .toast.is-on { opacity: 1; transform: translate(-50%, 0); }
-
-/* ---------- Device mockups ---------- */
-.devices { position: relative; width: 100%; aspect-ratio: 16 / 10.4; }
-.laptop {
-  position: absolute; left: 0; top: 0; width: 84%;
-}
-.laptop__screen {
-  position: relative;
-  aspect-ratio: 16 / 10;
-  padding: 2.2%;
-  background: #050505;
-  border: 1px solid var(--line-strong);
-  border-radius: 20px 20px 6px 6px;
-}
-.laptop__screen > * { width: 100%; height: 100%; border-radius: 8px; object-fit: cover; }
-.laptop__base {
-  height: 10px; margin: 0 -6%;
-  background: var(--bg-band);
-  border: 1px solid var(--line);
-  border-radius: 2px 2px 20px 20px;
-}
-.phone {
-  position: absolute; right: 0; bottom: 0; width: 22%;
-  aspect-ratio: 9 / 19.5;
-  padding: 3.5%;
-  background: #050505;
-  border: 1px solid var(--line-strong);
-  border-radius: 24px;
-}
-.phone > * { width: 100%; height: 100%; border-radius: 16px; object-fit: cover; }
-.devices .ph { background-size: 24px 24px; }
-.devices .phone .ph__label { font-size: 0.5rem; letter-spacing: 0.1em; padding: 0 4px; }
-.devices .phone .ph__hint { display: none; }
 
 /* ---------- Pricing panels ---------- */
 .plans { display: grid; gap: var(--gutter); }
