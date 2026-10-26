@@ -1,5 +1,5 @@
 /*
-  router.js — hash router (#/, #/work, #/work/<slug>, #/services, #/process, #/pricing, #/about, #/contact).
+  router.js — hash router (#/, #/work, #/services, #/process, #/pricing, #/about, #/contact).
   Every change runs the page transition: panel slides up over the page (350ms), the old view's
   ScrollTriggers/listeners are destroyed, the new view renders + mounts, scroll resets, panel slides away (350ms).
   Hashes that don't start with "#/" (e.g. the skip link) are ignored. Unknown routes render the 404 view.
@@ -22,9 +22,7 @@
     var seg = path.split("/").filter(Boolean);
     var page = "notfound", params = {};
     if (!seg.length) page = "home";
-    else if (seg[0] === "work" && seg.length === 2) { page = "case"; params.slug = seg[1]; }
     else if (seg.length === 1 && ["work", "services", "process", "pricing", "about", "contact"].indexOf(seg[0]) > -1) page = seg[0];
-    if (page === "case" && !K.pages.case.exists(params)) page = "notfound";
     return { path: path, page: page, params: params, query: q };
   }
 

@@ -12,7 +12,6 @@ Every page is a view inside `index.html`, swapped by a hash router:
 | --- | --- |
 | `#/` | Home (10 sections) |
 | `#/work` | Work index |
-| `#/work/1bhk` (and every other slug) | Case study |
 | `#/services` | Services |
 | `#/process` | Process |
 | `#/pricing` | Pricing |
@@ -34,7 +33,7 @@ css/
 js/
   config.js           ← settings you edit (form endpoint, analytics, placeholder tags)
   data/copy.js        ← all site copy
-  data/projects.js    ← all client projects (logos, screenshots, case study text)
+  data/projects.js    ← all client projects (logos, names, categories)
   utils.js            namespace, flags, eases, view lifecycle, clipboard/toast
   reveal.js           split-text helper + declarative reveals (data-anim)
   ui.js               shared markup (logo element, buttons, devices, plans, footer)
@@ -97,7 +96,7 @@ Before launch, update `siteUrl` in `js/config.js`, the URLs in `sitemap.xml` and
 
 These are marked in the UI with a dashed **Replace** tag or a grid placeholder (turn the tags off with `showPlaceholderTags: false` in `config.js` once done):
 
-1. **Case study text:** `year`, `timeline`, `brief`, `approach` and `details` per project are placeholders (`placeholder: true`). Edit the text and set the flag to `false`.
+1. **Project years:** the `year` on each project is a placeholder (`placeholder: true`). Edit it and set the flag to `false`.
 2. **Project categories and types:** Home Decor and Luminae are set to Retail as best guesses. Confirm them.
 3. **Founder photos and names:** the About page has two founder slots (`js/pages/about.js`). Remove one if you're a solo founder.
 4. **Reply line:** `replyLine` in `config.js` ("We reply within 24 hours").

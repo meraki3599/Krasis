@@ -1,6 +1,6 @@
 /*
-  data/projects.js — every client project. One object per brand; the Home work section,
-  the Work index and the case study pages all read from this list.
+  data/projects.js — every client project. One object per brand; the Home work section
+  and the Work index read from this list.
   Depends on: config.js (window.KRASIS).
 
   To replace placeholders:
@@ -20,12 +20,8 @@
       category: "Hospitality",
       type: "Cinematic hospitality website",
       year: ph("2026"),
-      timeline: ph("Add timeline"),
       services: ["Design", "Development", "Scroll animation"],
-      lead: true,
-      brief: ph("Placeholder brief: describe what 1BHK needed, who the audience is and what the old web presence was missing."),
-      approach: ph("Placeholder approach: describe the creative direction, the scroll story and the key interactions you built."),
-      details: [ph("Detail or result one"), ph("Detail or result two"), ph("Detail or result three")]
+      lead: true
     },
     {
       slug: "2bhk",
@@ -36,12 +32,8 @@
       category: "Hospitality",
       type: "Cinematic hospitality website",
       year: ph("2026"),
-      timeline: ph("Add timeline"),
       services: ["Design", "Development", "Scroll animation"],
-      lead: true,
-      brief: ph("Placeholder brief: describe what 2BHK needed, who the audience is and what the old web presence was missing."),
-      approach: ph("Placeholder approach: describe the creative direction, the scroll story and the key interactions you built."),
-      details: [ph("Detail or result one"), ph("Detail or result two"), ph("Detail or result three")]
+      lead: true
     },
     {
       slug: "ballr",
@@ -52,12 +44,8 @@
       category: "Hospitality",
       type: "Cinematic hospitality website",
       year: ph("2026"),
-      timeline: ph("Add timeline"),
       services: ["Design", "Development", "Scroll animation"],
-      lead: true,
-      brief: ph("Placeholder brief: describe what Ballr needed, who the audience is and what the old web presence was missing."),
-      approach: ph("Placeholder approach: describe the creative direction, the scroll story and the key interactions you built."),
-      details: [ph("Detail or result one"), ph("Detail or result two"), ph("Detail or result three")]
+      lead: true
     },
     {
       slug: "home-decor",
@@ -69,11 +57,7 @@
       category: "Retail",
       type: ph("Retail website"),
       year: ph("2026"),
-      timeline: ph("Add timeline"),
-      services: ["Design", "Development", "Responsive build"],
-      brief: ph("Placeholder brief: describe what Home Decor needed, who the audience is and what the old web presence was missing."),
-      approach: ph("Placeholder approach: describe the creative direction and the key pages you built."),
-      details: [ph("Detail or result one"), ph("Detail or result two"), ph("Detail or result three")]
+      services: ["Design", "Development", "Responsive build"]
     },
     {
       slug: "luminae",
@@ -85,11 +69,7 @@
       category: "Retail",
       type: ph("Candle brand website"),
       year: ph("2026"),
-      timeline: ph("Add timeline"),
-      services: ["Design", "Development"],
-      brief: ph("Placeholder brief: describe what Luminae needed, who the audience is and what the old web presence was missing."),
-      approach: ph("Placeholder approach: describe the creative direction and the key pages you built."),
-      details: [ph("Detail or result one"), ph("Detail or result two"), ph("Detail or result three")]
+      services: ["Design", "Development"]
     }
   ];
 

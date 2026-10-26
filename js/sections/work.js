@@ -10,20 +10,20 @@
 
   function card(p, i) {
     return '<li class="wcard">' +
-      '<a class="wcard__link" href="#/work/' + p.slug + '" data-cursor="View case study" aria-label="' + K.esc(p.fullName) + ', view case study">' +
+      '<div class="wcard__link">' +
       '<div class="wcard__logo">' + K.ui.logo(p.logo, p.fullName, { filter: p.logoFilter, lazy: true }) + "</div>" +
       '<div class="wcard__meta">' +
       '<span class="label">' + K.pad(i + 1) + "</span>" +
       '<h3 class="wcard__name h3">' + K.esc(p.fullName) + "</h3>" +
       "</div>" +
       '<p class="wcard__type label">' + K.esc(K.txt(p.type)) + "</p>" +
-      "</a></li>";
+      "</div></li>";
   }
 
   K.sections.work = {
     render: function () {
       var c = K.copy.work;
-      // Lead case studies (the cinematic hospitality sites) first
+      // Lead projects (the cinematic hospitality sites) first
       var ordered = K.projects.filter(function (p) { return p.lead; }).concat(K.projects.filter(function (p) { return !p.lead; }));
       return '<section class="work" aria-labelledby="work-title" data-hscroll>' +
         K.ui.rule() +

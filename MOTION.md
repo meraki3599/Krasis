@@ -60,8 +60,6 @@ Skip: click, Esc, Enter or Space jumps to 1.1s and plays at 2.5×.
 | Why contrasts | pivot line | top 90% → top 45% | scrub true | contrast columns opacity 1 → 0.28 |
 | CTA grid (`cta.js`) | `.cta` | top 90% → center center | scrub 0.6 | grid lines diverge 0.05 → 1 |
 | Footer mark | mark | top 95% | once | yPercent 30 → 0, fade, 1.4s |
-| Case study device (`case.js`) | device | top 95% → top 25% | scrub 0.6 | rotateX 18 → 0, scale 0.86 → 1 |
-| Case study media | each frame | top bottom → bottom top | scrub true | yPercent −5 → 5 |
 | Process page (`pages/process.js`) | each step | top 50% → bottom 50% | toggle + scrub | numeral swap, ring stroke fills |
 
 Pinned and scrubbed sequences only run at ≥768px without reduced motion (`K.MQ_MOTION`). Below that, sections stack with once-only reveals. The hero parallax runs at every size (as in the original) and opts out only for reduced motion.

@@ -1,6 +1,6 @@
 /*
   pages/work.js — Work index (#/work): giant title, category filters, editorial list rows with a floating
-  preview that follows the cursor (fine pointers only). Rows open the case study (#/work/<slug>).
+  preview of the client logo that follows the cursor (fine pointers only). Rows are not links.
   Depends on: GSAP, utils.js, ui.js, data/projects.js.
 */
 (function (K) {
@@ -21,12 +21,12 @@
       }).join("");
       var rows = K.projects.map(function (p, i) {
         return '<li class="wrow" data-cat="' + K.esc(p.category) + '" data-slug="' + p.slug + '">' +
-          '<a class="wrow__link" href="#/work/' + p.slug + '" data-cursor="View">' +
+          '<div class="wrow__link">' +
           '<span class="wrow__n label">' + K.pad(i + 1) + "</span>" +
           '<span class="wrow__name">' + K.esc(p.fullName) + "</span>" +
           '<span class="wrow__cat label">' + K.esc(p.category) + "</span>" +
           '<span class="wrow__year label">' + K.phText(p.year) + "</span>" +
-          "</a></li>";
+          "</div></li>";
       }).join("");
       return '<section class="page-hero section" aria-labelledby="work-h1">' +
         K.ui.rule() +
