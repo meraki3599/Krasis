@@ -31,6 +31,6 @@ window.KRASIS.config = {
   // Preloader runs once per browser (localStorage). Set true to always show it.
   alwaysShowPreloader: false,
 
-  // Canonical site URL (placeholder): also update sitemap.xml and robots.txt when you have a domain
-  siteUrl: "https://your-domain.com"
+  // Canonical site URL (custom domain on GitHub Pages; see the CNAME file)
+  siteUrl: "https://krasis.in"
 };

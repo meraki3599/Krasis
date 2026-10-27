@@ -91,7 +91,7 @@ The form sends enquiries to your inbox through [EmailJS](https://www.emailjs.com
      ```
    Save, then copy the **Template ID**.
 3. **Account → General.** Copy the **Public Key**.
-4. **Account → Security.** Under allowed origins, add `https://meraki3599.github.io` so nobody else can send with your keys.
+4. **Account → Security.** Under allowed origins, add `https://krasis.in` and `https://www.krasis.in` so nobody else can send with your keys.
 
 Then paste the three values into `js/config.js`:
 
@@ -116,7 +116,7 @@ The folder is a static site with only relative paths, so you can upload it anywh
 - **Cloudflare Pages:** create a project, upload the folder, leave the build command empty.
 - **GitHub Pages:** push the folder to a repo and enable Pages on the root.
 
-Before launch, update `siteUrl` in `js/config.js`, the URLs in `sitemap.xml` and `robots.txt`, and use absolute URLs for `og:image` in `index.html`.
+The live site is served from **https://krasis.in** (GitHub Pages custom domain, set by the `CNAME` file in the repo root; DNS is at GoDaddy: four A records for `@` pointing to GitHub's `185.199.108–111.153`, and `www` as a CNAME to `meraki3599.github.io`). If the domain ever changes, update `CNAME`, `siteUrl` in `js/config.js`, `sitemap.xml`, `robots.txt` and the absolute URLs in `index.html`'s meta tags.
 
 ## Analytics
 
@@ -130,7 +130,6 @@ These are marked in the UI with a dashed **Replace** tag or a grid placeholder (
 6. **Project categories and types:** Home Decor and Luminae are set to Retail as best guesses. Confirm them.
 7. **Reply line:** `replyLine` in `config.js` ("We reply within 24 hours").
 8. **EmailJS IDs:** `emailjs` in `config.js` (see Contact form above).
-9. **Domain:** `siteUrl`, `sitemap.xml`, `robots.txt` and the OG image URL.
 
 ## Notes on decisions
 

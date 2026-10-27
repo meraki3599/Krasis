@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Replace with your domain before launch
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://krasis.in/sitemap.xml
