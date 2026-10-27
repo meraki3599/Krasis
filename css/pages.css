@@ -354,11 +354,6 @@
 .about-hero { position: relative; overflow: hidden; min-height: 100vh; }
 .about__squares { position: absolute; inset: 0; }
 .about-hero .container { position: relative; z-index: 1; }
-.team__people { display: grid; gap: var(--gutter); }
-@media (min-width: 768px) { .team__people { grid-template-columns: repeat(3, 1fr); } }
-.person__photo { aspect-ratio: 4 / 5; border-radius: var(--r-media); }
-.person figcaption { margin-top: 20px; }
-.person .h3 { color: var(--text); }
 
 /* ======================= CONTACT ======================= */
 .contact__grid { align-items: start; row-gap: 72px; }

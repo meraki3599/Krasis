@@ -1,6 +1,6 @@
 /*
   pages/about.js — About (#/about): Overview, Our Mission, the Home Vision/Mission (stacked),
-  "Who you'll work with" with founder placeholders, and the outlined-squares cluster as ambient visual.
+  "Who you'll work with", and the outlined-squares cluster as ambient visual.
   Depends on: utils.js, ui.js, squares.js, sections/vision.js, data/copy.js.
 */
 (function (K) {
@@ -32,12 +32,7 @@
         '<div class="container grid">' +
         '<h2 class="h2 c-1-9" id="team-h" data-anim="lines">Who you\'ll work with</h2>' +
         '<p class="lead c-6-12 mt-m" data-anim="fade">You work directly with the people building your site. No account managers, no middlemen.</p>' +
-        '<div class="team__people c-1-12 mt-l" data-anim="stagger">' +
-        [1, 2].map(function (n) {
-          return '<figure class="person"><div class="ph person__photo"><span class="ph__label">Founder photo</span><span class="ph__hint">Add to assets/images/</span></div>' +
-            '<figcaption><p class="h3">Founder name<span class="ph-tag">Replace</span></p><p class="label mt-s">Role<span class="ph-tag">Replace</span></p></figcaption></figure>';
-        }).join("") +
-        "</div></div></section>";
+        "</div></section>";
     },
     mount: function (root) {
       var s = K.squares.mount(K.$(".about__squares", root), { count: 30, cx: 0.84, cy: 0.26, spread: 0.3 });

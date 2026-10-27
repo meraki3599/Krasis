@@ -126,12 +126,11 @@ Before launch, update `siteUrl` in `js/config.js`, the URLs in `sitemap.xml` and
 
 These are marked in the UI with a dashed **Replace** tag or a grid placeholder (turn the tags off with `showPlaceholderTags: false` in `config.js` once done):
 
-1. **Project years:** the `year` on each project is a placeholder (`placeholder: true`). Edit it and set the flag to `false`.
-2. **Project categories and types:** Home Decor and Luminae are set to Retail as best guesses. Confirm them.
-3. **Founder photos and names:** the About page has two founder slots (`js/pages/about.js`). Remove one if you're a solo founder.
-4. **Reply line:** `replyLine` in `config.js` ("We reply within 24 hours").
-5. **EmailJS IDs:** `emailjs` in `config.js` (see Contact form above).
-6. **Domain:** `siteUrl`, `sitemap.xml`, `robots.txt` and the OG image URL.
+5. **Project years:** the `year` on each project is a placeholder (`placeholder: true`). Edit it and set the flag to `false`.
+6. **Project categories and types:** Home Decor and Luminae are set to Retail as best guesses. Confirm them.
+7. **Reply line:** `replyLine` in `config.js` ("We reply within 24 hours").
+8. **EmailJS IDs:** `emailjs` in `config.js` (see Contact form above).
+9. **Domain:** `siteUrl`, `sitemap.xml`, `robots.txt` and the OG image URL.
 
 ## Notes on decisions
 
