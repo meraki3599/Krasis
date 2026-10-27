@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--
+  Krasis — studio site shell.
+  Open by double-clicking this file. Every view (Home, Work, Services,
+  Process, Pricing, About, Contact, 404) is rendered into <main id="view"> by js/router.js.
+  No modules, no fetch(): everything is classic deferred scripts so it runs from file://.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>About Krasis | Premium Web Design Studio in Pune</title>
+  <meta name="description" content="Krasis is a premium web design and development studio in Pune, India, crafting bespoke, high-performance websites that build trust and drive growth.">
+  <meta name="theme-color" content="#0e0e0e">
+  <meta name="color-scheme" content="dark">
+  <script>document.documentElement.className += " js";</script>
+  <link rel="canonical" href="https://krasis.in/about/">
+  <link rel="icon" type="image/png" href="../assets/og/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/og/favicon.png">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Krasis">
+  <meta property="og:title" content="About Krasis | Premium Web Design Studio in Pune">
+  <meta property="og:description" content="Krasis is a premium web design and development studio in Pune, India, crafting bespoke, high-performance websites that build trust and drive growth.">
+  <meta property="og:url" content="https://krasis.in/about/">
+  <meta property="og:image" content="https://krasis.in/assets/og/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://krasis.in/assets/og/og-card.png">
+
+  <!-- Fonts (self-hosted, display weights preloaded) -->
+  <link rel="preload" href="../assets/fonts/montserrat-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Styles: tokens → base → layout → components → pages → animations -->
+  <link rel="stylesheet" href="../css/tokens.css?v=16">
+  <link rel="stylesheet" href="../css/base.css?v=16">
+  <link rel="stylesheet" href="../css/layout.css?v=16">
+  <link rel="stylesheet" href="../css/components.css?v=16">
+  <link rel="stylesheet" href="../css/pages.css?v=16">
+  <link rel="stylesheet" href="../css/animations.css?v=16">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://krasis.in/#website",
+        "url": "https://krasis.in/",
+        "name": "Krasis",
+        "alternateName": ["Krasis Studio", "Krasis Web Design"],
+        "publisher": { "@id": "https://krasis.in/#studio" }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://krasis.in/#studio",
+        "name": "Krasis",
+        "alternateName": "Krasis Studio",
+        "description": "Boutique web design and development studio in Pune, India, building custom, cinematic, scroll-driven websites.",
+        "url": "https://krasis.in/",
+        "email": "contactkrasis@gmail.com",
+        "image": "https://krasis.in/assets/og/og-card.png",
+        "logo": "https://krasis.in/assets/logos/krasis.png",
+        "address": { "@type": "PostalAddress", "addressLocality": "Pune", "addressRegion": "Maharashtra", "addressCountry": "IN" },
+        "areaServed": "Worldwide",
+        "knowsAbout": ["Web design", "Website development", "Scroll animation", "Responsive web design"],
+        "sameAs": ["https://www.instagram.com/krasis0"],
+        "makesOffer": [
+          { "@type": "Offer", "name": "Standard website", "price": "20000", "priceCurrency": "INR" },
+          { "@type": "Offer", "name": "Premium website", "price": "25000", "priceCurrency": "INR" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="is-loading">
+  <a class="skip-link" href="#view" data-skip>Skip to content</a>
+
+  <noscript>
+    <div class="noscript">
+      <img src="../assets/logos/krasis.png" alt="Krasis" width="240" height="67">
+      <p>This site is built around motion and needs JavaScript to run. Turn it on and reload, or reach us directly at
+        <a href="mailto:contactkrasis@gmail.com">contactkrasis@gmail.com</a> or on Instagram
+        <a href="https://www.instagram.com/krasis0">@krasis0</a>. Krasis, Pune, India.</p>
+    </div>
+  </noscript>
+
+  <!-- Preloader (first visit only, see js/preloader.js) -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__line"><span></span><span></span></div>
+    <div class="preloader__logo"><img src="../assets/logos/krasis.png" alt="" width="840" height="235"></div>
+    <div class="preloader__count label">(<span data-count-out>000</span>/100)</div>
+    <button class="preloader__skip label" type="button" tabindex="-1">Skip</button>
+  </div>
+
+  <!-- Navigation bar (mix-blend difference) -->
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="/" data-route="" aria-label="Krasis, home">
+      <img src="../assets/logos/krasis.png" alt="Krasis" width="840" height="235">
+    </a>
+    <div class="nav__right">
+      <a class="nav__cta link-draw" href="/contact/" data-route="contact">Start a project</a>
+      <button class="nav__menu" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="nav__menu-label">Menu</span>
+        <span class="nav__menu-icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Full-screen menu overlay -->
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+    <nav class="menu__nav" aria-label="Primary">
+      <ul class="menu__list"></ul>
+    </nav>
+    <div class="menu__foot label">
+      <button type="button" class="menu__copy" data-copy="contactkrasis@gmail.com">contactkrasis@gmail.com</button>
+      <a href="https://www.instagram.com/krasis0" target="_blank" rel="noopener">Instagram krasis0</a>
+      <span>Pune, India</span>
+    </div>
+  </div>
+
+  <!-- Route content -->
+  <main id="view" class="view" tabindex="-1">
+    <!-- SEO:START (generated by tools/build-pages.js; replaced by the live view once JavaScript runs) -->
+    <div class="seo-text"><nav aria-label="Site pages"><ul><li><a href="/">Home</a></li><li><a href="/work/">Work</a></li><li><a href="/services/">Services</a></li><li><a href="/process/">Process</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul></nav><h1>About</h1><h2>Overview</h2><p>Krasis is a premium web design and development studio dedicated to creating sophisticated, high-performance websites that elevate businesses and strengthen their digital presence. We combine modern aesthetics with strategic functionality to deliver websites that are visually refined, responsive across all devices, and designed to inspire trust and drive growth. Every project is crafted with precision, attention to detail, and a commitment to excellence, ensuring that each client receives a bespoke digital experience that reflects the quality and ambition of their brand. At Krasis, we believe a website is more than an online presence. It's the foundation of a business's digital identity.</p><h2>Our Mission</h2><p>At Krasis, our objective is to empower businesses with exceptional digital experiences through the creation of modern, luxurious, and high-performing websites. We strive to combine timeless design with innovative technology to help brands establish credibility, engage their audience, and achieve sustainable growth. Our commitment is to deliver tailored solutions that not only reflect each client's unique identity but also create a lasting impact in an increasingly competitive digital landscape.</p><h2>Vision</h2><p>At Krasis, we envision a digital landscape where the line between design and experience disappears entirely. A world where visiting a website feels less like browsing a page and more like stepping into a world, one that reflects the soul of the brand behind it. We believe the web is one of the most powerful creative mediums of our time, and we exist to prove that. Our vision is to be the studio that emerging and established brands turn to when they want more than just a website, when they want something that genuinely represents who they are, stops people mid-scroll, and leaves a lasting impression long after the tab is closed.</p><h2>Who you'll work with</h2><p>You work directly with the people building your site. No account managers, no middlemen.</p></div>
+    <!-- SEO:END -->
+  </main>
+
+  <!-- Page transition panel -->
+  <div class="transition" id="transition" aria-hidden="true">
+    <img src="../assets/logos/krasis.png" alt="" width="840" height="235">
+  </div>
+
+  <!-- Custom cursor (fine pointer only) -->
+  <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+
+  <!-- Toast -->
+  <div class="toast label" id="toast" role="status" aria-live="polite"></div>
+
+  <!--
+    Script order (all classic + deferred, executed in this order):
+    1. Vendor: GSAP core, ScrollTrigger, CustomEase, Lenis
+    2. Config + data: config.js, data/seo.js, data/copy.js, data/projects.js
+    3. Core helpers: utils.js (namespace, split text, reveals), ui.js (shared markup)
+    4. Global systems: smooth-scroll, cursor, nav, preloader, squares, grid-lines, form
+    5. Home sections: hero.js + sections/*
+    6. Views: pages/*
+    7. Router, then main.js (boot)
+  -->
+  <script defer src="../assets/vendor/gsap.min.js"></script>
+  <script defer src="../assets/vendor/ScrollTrigger.min.js"></script>
+  <script defer src="../assets/vendor/CustomEase.min.js"></script>
+  <script defer src="../assets/vendor/lenis.min.js"></script>
+
+  <script defer src="../js/config.js?v=16"></script>
+  <script defer src="../js/data/seo.js?v=16"></script>
+  <script defer src="../js/data/copy.js?v=16"></script>
+  <script defer src="../js/data/projects.js?v=16"></script>
+
+  <script defer src="../js/utils.js?v=16"></script>
+  <script defer src="../js/reveal.js?v=16"></script>
+  <script defer src="../js/ui.js?v=16"></script>
+
+  <script defer src="../js/smooth-scroll.js?v=16"></script>
+  <script defer src="../js/cursor.js?v=16"></script>
+  <script defer src="../js/nav.js?v=16"></script>
+  <script defer src="../js/preloader.js?v=16"></script>
+  <script defer src="../js/squares.js?v=16"></script>
+  <script defer src="../js/grid-lines.js?v=16"></script>
+  <script defer src="../js/form.js?v=16"></script>
+
+  <script defer src="../js/hero.js?v=16"></script>
+  <script defer src="../js/sections/problem.js?v=16"></script>
+  <script defer src="../js/sections/intro.js?v=16"></script>
+  <script defer src="../js/sections/vision.js?v=16"></script>
+  <script defer src="../js/sections/work.js?v=16"></script>
+  <script defer src="../js/sections/process.js?v=16"></script>
+  <script defer src="../js/sections/included.js?v=16"></script>
+  <script defer src="../js/sections/pricing.js?v=16"></script>
+  <script defer src="../js/sections/why.js?v=16"></script>
+  <script defer src="../js/sections/cta.js?v=16"></script>
+
+  <script defer src="../js/pages/home.js?v=16"></script>
+  <script defer src="../js/pages/work.js?v=16"></script>
+  <script defer src="../js/pages/services.js?v=16"></script>
+  <script defer src="../js/pages/process.js?v=16"></script>
+  <script defer src="../js/pages/pricing.js?v=16"></script>
+  <script defer src="../js/pages/about.js?v=16"></script>
+  <script defer src="../js/pages/contact.js?v=16"></script>
+  <script defer src="../js/pages/notfound.js?v=16"></script>
+
+  <script defer src="../js/router.js?v=16"></script>
+  <script defer src="../js/main.js?v=16"></script>
+</body>
+</html>

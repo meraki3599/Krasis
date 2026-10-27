@@ -104,6 +104,14 @@
     K.copyText(el.getAttribute("data-copy"));
   });
 
-  // Route helper (hash router paths)
-  K.href = function (path) { return "#" + path; };
+  // ---------- Links ----------
+  // On a web server every page has a real address (/about/); opened from disk (file://) the site
+  // falls back to hash addresses (#/about) so double-clicking index.html still works.
+  K.pathMode = /^https?:$/.test(location.protocol);
+  // K.link("contact", "plan=premium") → "/contact/?plan=premium" or "#/contact?plan=premium"
+  K.link = function (route, query) {
+    route = route || "";
+    if (K.pathMode) return "/" + (route ? route + "/" : "") + (query ? "?" + query : "");
+    return "#/" + route + (query ? "?" + query : "");
+  };
 })(window.KRASIS);

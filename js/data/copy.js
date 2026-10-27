@@ -30,13 +30,13 @@
 
   K.copy = {
     nav: [
-      { label: "Home", href: "#/" },
-      { label: "Work", href: "#/work" },
-      { label: "Services", href: "#/services" },
-      { label: "Process", href: "#/process" },
-      { label: "Pricing", href: "#/pricing" },
-      { label: "About", href: "#/about" },
-      { label: "Contact", href: "#/contact" }
+      { label: "Home", route: "" },
+      { label: "Work", route: "work" },
+      { label: "Services", route: "services" },
+      { label: "Process", route: "process" },
+      { label: "Pricing", route: "pricing" },
+      { label: "About", route: "about" },
+      { label: "Contact", route: "contact" }
     ],
 
     hero: {

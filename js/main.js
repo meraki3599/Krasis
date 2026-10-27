@@ -26,6 +26,8 @@
 
   function boot() {
     if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    // Header links are written as real addresses; from disk they need #/ addresses instead
+    K.$$("a[data-route]").forEach(function (a) { a.setAttribute("href", K.link(a.getAttribute("data-route"))); });
     if (!K.config.showPlaceholderTags) document.documentElement.classList.add("hide-ph");
     K.scroll.init();
     K.cursor.init();

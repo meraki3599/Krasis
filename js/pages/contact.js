@@ -1,5 +1,5 @@
 /*
-  pages/contact.js — Contact (#/contact, optional ?plan=standard|premium preselects the plan).
+  pages/contact.js — Contact (/contact/, optional ?plan=standard|premium preselects the plan).
   Left: email (copy), Instagram, location, reply line. Right: the underlined form (see form.js).
   Depends on: utils.js, ui.js, form.js, config.js.
 */
@@ -20,8 +20,6 @@
   }
 
   K.pages.contact = {
-    title: "Contact | Krasis",
-    description: "Start a project with Krasis. Email contactkrasis@gmail.com or send the form and we'll be in touch.",
     compactFooter: true, // the page headline already is the footer line
     render: function (params, query) {
       var cfg = K.config;

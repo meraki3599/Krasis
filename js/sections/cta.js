@@ -15,7 +15,7 @@
         '<div class="cta__mark" data-anim="fade">' + K.ui.krasis("", { lazy: true }) + "</div>" +
         '<h2 class="h2 cta__title mt-l" id="cta-title" data-anim="lines">' + K.esc(K.copy.cta.title) + "</h2>" +
         '<div class="cta__links mt-m" data-anim="fade">' + K.ui.contactLinks() + "</div>" +
-        '<div class="mt-l" data-anim="fade">' + K.ui.btn("Start a project", "#/contact", { cls: "btn--lg" }) + "</div>" +
+        '<div class="mt-l" data-anim="fade">' + K.ui.btn("Start a project", K.link("contact"), { cls: "btn--lg" }) + "</div>" +
         "</div>" +
         K.ui.counter(10) +
         "</section>";

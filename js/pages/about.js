@@ -1,5 +1,5 @@
 /*
-  pages/about.js — About (#/about): Overview, Our Mission, the Home Vision/Mission (stacked),
+  pages/about.js — About (/about/): Overview, Our Mission, the Home Vision/Mission (stacked),
   "Who you'll work with", and the outlined-squares cluster as ambient visual.
   Depends on: utils.js, ui.js, squares.js, sections/vision.js, data/copy.js.
 */
@@ -7,8 +7,6 @@
   K.pages = K.pages || {};
 
   K.pages.about = {
-    title: "About | Krasis",
-    description: "Krasis is a premium web design and development studio in Pune, India, crafting bespoke, high-performance websites.",
     render: function () {
       var a = K.copy.about;
       return '<section class="page-hero section about-hero" aria-labelledby="about-h1">' +

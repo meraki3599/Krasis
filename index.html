@@ -9,10 +9,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Krasis | Custom websites, built the right way</title>
-  <meta name="description" content="Krasis is a boutique web design and development studio in Pune, India, building custom, cinematic, scroll-driven websites for brands that care how they show up online.">
+  <title>Krasis | Web Design &amp; Development Studio in Pune</title>
+  <meta name="description" content="Krasis is a boutique web design and development studio in Pune, India. We build custom, cinematic, scroll-driven websites with no templates. Plans from ₹20,000.">
   <meta name="theme-color" content="#0e0e0e">
   <meta name="color-scheme" content="dark">
+  <script>document.documentElement.className += " js";</script>
   <link rel="canonical" href="https://krasis.in/">
   <link rel="icon" type="image/png" href="./assets/og/favicon.png">
   <link rel="apple-touch-icon" href="./assets/og/favicon.png">
@@ -20,8 +21,8 @@
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Krasis">
-  <meta property="og:title" content="Krasis | Custom websites, built the right way">
-  <meta property="og:description" content="A boutique web design and development studio in Pune, India.">
+  <meta property="og:title" content="Krasis | Web Design &amp; Development Studio in Pune">
+  <meta property="og:description" content="Krasis is a boutique web design and development studio in Pune, India. We build custom, cinematic, scroll-driven websites with no templates. Plans from ₹20,000.">
   <meta property="og:url" content="https://krasis.in/">
   <meta property="og:image" content="https://krasis.in/assets/og/og-card.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -32,29 +33,44 @@
   <link rel="preload" href="./assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- Styles: tokens → base → layout → components → pages → animations -->
-  <link rel="stylesheet" href="./css/tokens.css?v=15">
-  <link rel="stylesheet" href="./css/base.css?v=15">
-  <link rel="stylesheet" href="./css/layout.css?v=15">
-  <link rel="stylesheet" href="./css/components.css?v=15">
-  <link rel="stylesheet" href="./css/pages.css?v=15">
-  <link rel="stylesheet" href="./css/animations.css?v=15">
+  <link rel="stylesheet" href="./css/tokens.css?v=16">
+  <link rel="stylesheet" href="./css/base.css?v=16">
+  <link rel="stylesheet" href="./css/layout.css?v=16">
+  <link rel="stylesheet" href="./css/components.css?v=16">
+  <link rel="stylesheet" href="./css/pages.css?v=16">
+  <link rel="stylesheet" href="./css/animations.css?v=16">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Krasis",
-    "description": "Boutique web design and development studio building custom, cinematic, scroll-driven websites.",
-    "email": "contactkrasis@gmail.com",
-    "url": "https://krasis.in",
-    "image": "https://krasis.in/assets/og/og-card.png",
-    "logo": "https://krasis.in/assets/logos/krasis.png",
-    "address": { "@type": "PostalAddress", "addressLocality": "Pune", "addressRegion": "Maharashtra", "addressCountry": "IN" },
-    "areaServed": "Worldwide",
-    "sameAs": ["https://www.instagram.com/krasis0"],
-    "makesOffer": [
-      { "@type": "Offer", "name": "Standard", "price": "20000", "priceCurrency": "INR" },
-      { "@type": "Offer", "name": "Premium", "price": "25000", "priceCurrency": "INR" }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://krasis.in/#website",
+        "url": "https://krasis.in/",
+        "name": "Krasis",
+        "alternateName": ["Krasis Studio", "Krasis Web Design"],
+        "publisher": { "@id": "https://krasis.in/#studio" }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://krasis.in/#studio",
+        "name": "Krasis",
+        "alternateName": "Krasis Studio",
+        "description": "Boutique web design and development studio in Pune, India, building custom, cinematic, scroll-driven websites.",
+        "url": "https://krasis.in/",
+        "email": "contactkrasis@gmail.com",
+        "image": "https://krasis.in/assets/og/og-card.png",
+        "logo": "https://krasis.in/assets/logos/krasis.png",
+        "address": { "@type": "PostalAddress", "addressLocality": "Pune", "addressRegion": "Maharashtra", "addressCountry": "IN" },
+        "areaServed": "Worldwide",
+        "knowsAbout": ["Web design", "Website development", "Scroll animation", "Responsive web design"],
+        "sameAs": ["https://www.instagram.com/krasis0"],
+        "makesOffer": [
+          { "@type": "Offer", "name": "Standard website", "price": "20000", "priceCurrency": "INR" },
+          { "@type": "Offer", "name": "Premium website", "price": "25000", "priceCurrency": "INR" }
+        ]
+      }
     ]
   }
   </script>
@@ -81,11 +97,11 @@
 
   <!-- Navigation bar (mix-blend difference) -->
   <header class="nav" id="nav">
-    <a class="nav__logo" href="#/" aria-label="Krasis, home">
+    <a class="nav__logo" href="/" data-route="" aria-label="Krasis, home">
       <img src="./assets/logos/krasis.png" alt="Krasis" width="840" height="235">
     </a>
     <div class="nav__right">
-      <a class="nav__cta link-draw" href="#/contact">Start a project</a>
+      <a class="nav__cta link-draw" href="/contact/" data-route="contact">Start a project</a>
       <button class="nav__menu" type="button" aria-expanded="false" aria-controls="menu">
         <span class="nav__menu-label">Menu</span>
         <span class="nav__menu-icon" aria-hidden="true"><i></i><i></i></span>
@@ -106,7 +122,11 @@
   </div>
 
   <!-- Route content -->
-  <main id="view" class="view" tabindex="-1"></main>
+  <main id="view" class="view" tabindex="-1">
+    <!-- SEO:START (generated by tools/build-pages.js; replaced by the live view once JavaScript runs) -->
+    <div class="seo-text"><nav aria-label="Site pages"><ul><li><a href="/">Home</a></li><li><a href="/work/">Work</a></li><li><a href="/services/">Services</a></li><li><a href="/process/">Process</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul></nav><h1>Get your website the right way: the Krasis way</h1><p>Krasis is a boutique web design and development studio in Pune, India. We build custom, cinematic, scroll-driven websites with no templates. Plans from ₹20,000.</p><h2>Your website is your first impression. Most businesses are getting it wrong.</h2><p>In today's world, before a customer walks through your door, books your service, or buys your product, they've already Googled you. And what they find in those first few seconds determines whether they stay or leave.</p><p>The problem is that most businesses are either stuck with an outdated website, a generic template that looks like a thousand others, or no web presence at all. That costs you credibility. It costs you customers. And it costs you the ability to compete with brands that are showing up better than you online.</p><p>A bad website doesn't just fail to impress. It actively pushes people away.</p><h2>That's where Krasis comes in.</h2><p>Krasis is a web development studio that builds custom, high-quality websites tailored to your brand. We don't do cookie-cutter templates or rushed builds. Every project we take on is designed from the ground up, built around who you are, what you offer, and the kind of impression you want to leave.</p><h3>We specialise in:</h3><h3>Custom Website Design &amp; Development</h3><p>Fully built to your brand, not a template.</p><h3>Immersive Scroll Animations &amp; Interactions</h3><p>Websites that move, breathe, and engage.</p><h3>Responsive Builds</h3><p>Flawless across mobile, tablet, and desktop.</p><h3>End-to-End Delivery</h3><p>From the first conversation to the final launch, we handle everything.</p><p>Whether you're a restaurant, a retail brand, a creative studio, or a growing business, if you care about how you show up online, we're the team for you.</p><h2>Vision</h2><p>At Krasis, we envision a digital landscape where the line between design and experience disappears entirely. A world where visiting a website feels less like browsing a page and more like stepping into a world, one that reflects the soul of the brand behind it. We believe the web is one of the most powerful creative mediums of our time, and we exist to prove that. Our vision is to be the studio that emerging and established brands turn to when they want more than just a website, when they want something that genuinely represents who they are, stops people mid-scroll, and leaves a lasting impression long after the tab is closed.</p><h2>Mission</h2><p>Krasis was built on a simple belief, that great design and great engineering should never be a luxury. Our mission is to deliver custom, high-quality web experiences that are as thoughtful as they are technically precise. Every project we take on, whether it's an immersive hospitality website with cinematic scroll animations or a clean e-commerce build for a growing brand, is approached with the same level of care and intention. We work closely with our clients, taking the time to understand not just what they do, but why they do it, because that's what makes the difference between a website that exists and a website that works. At Krasis, we don't build templates. We build identities.</p><h2>Our work</h2><p>We have worked with countless brands including brands like:</p><ul><li>1BHK (Bar Haute Kitchen) (Hospitality): Cinematic hospitality website</li><li>2BHK (Bar Haute Kitchen) (Hospitality): Cinematic hospitality website</li><li>Ballr (Hospitality): Cinematic hospitality website</li><li>Home Decor (Retail): Retail website</li><li>Luminae (Retail): Candle brand website</li></ul><h2>Simple process. Zero guesswork.</h2><h3>01 Discovery</h3><p>We start with a conversation. We learn about your brand, your goals, your audience, and what you need from your website. No jargon, no complicated forms, just a real chat.</p><h3>02 Proposal &amp; Quote</h3><p>Based on what we discussed, we put together a clear proposal outlining exactly what we'll build, the timeline, and the cost. No hidden fees, no surprises.</p><h3>03 Design Phase</h3><p>We begin designing your website: layouts, colours, typography, and the overall feel. You'll see it take shape and have the chance to give feedback before a single line of code is written.</p><h3>04 Development</h3><p>Once the design is approved, we build it. Every interaction, animation, and page, coded cleanly and precisely.</p><h3>05 Review &amp; Revisions</h3><p>We walk you through the finished build and make any final adjustments. This is your chance to refine anything before it goes live.</p><h3>06 Launch &amp; Handover</h3><p>We launch your website and hand everything over to you: files, access, the works. And if you need anything after, we're still here.</p><h2>Here's exactly what's included.</h2><p>When you work with Krasis, you're not just getting a website. You're getting a complete, professionally built digital presence, delivered with care and built to last.</p><ul><li>Fully custom website design, made for your brand, no templates</li><li>Complete development: clean, fast, and responsive across all devices</li><li>Scroll animations &amp; interactions (where applicable)</li><li>Mobile optimisation: looks perfect on every screen size</li><li>Final source files and full ownership of your website</li><li>Launch support: we're with you on go-live day</li><li>Post-launch check-in: we follow up to make sure everything's running smoothly</li></ul><h2>Transparent pricing. No surprises.</h2><h3>Standard: ₹20,000/-*</h3><ul><li>Fully custom website design, made for your brand, no templates</li><li>Complete development, clean, fast, and responsive across all devices</li><li>Scroll animations &amp; interactions (where applicable)</li><li>Mobile optimisation, looks perfect on every screen size</li><li>Final source files and full ownership of your website</li><li>Launch support, we're with you on go-live day</li><li>Post-launch check-in, we follow up to make sure everything's running smoothly</li></ul><h3>Premium: ₹25,000/-*</h3><ul><li>Fully custom website design, made for your brand, no templates</li><li>Complete development, clean, fast, and responsive across all devices</li><li>Scroll animations &amp; interactions (where applicable)</li><li>Mobile optimisation, looks perfect on every screen size</li><li>Final source files and full ownership of your website</li><li>Launch support, we're with you on go-live day</li><li>Post-launch check-in, we follow up to make sure everything's running smoothly</li><li>Updates forever, you can request ANY changes to be made after the launch, forever</li><li>Comprehensive walkthrough after the work is done, we will give a complete tour of the website</li><li>Priority pass, we will assist you and make your website on priority</li></ul><p>This is a steal for only ₹5,000 more.</p><p>*A confirmation payment of ₹5,000 is required before the start of the project. The remaining funds will be transferred after completion.</p><h2>Why not just use Wix? Or hire a big agency?</h2><p>It's a fair question. Here's the honest answer.</p><p>Template builders like Wix or Squarespace are fast and cheap, but they're also limiting, generic, and immediately recognisable as a template. Your brand deserves better than looking like everyone else.</p><p>Big agencies, on the other hand, are expensive, slow, and you're rarely their priority. You become a ticket in a system.</p><p>Krasis sits in a different space entirely. We're a boutique studio, small enough to give every client genuine attention, skilled enough to deliver work that competes with anything out there.</p><ul><li>Everything is custom. No templates, no shortcuts, no compromise.</li><li>You work directly with the people building your site. No account managers, no middlemen.</li><li>We care about the details. The animations, the spacing, the way a page feels to scroll through, it all matters to us.</li><li>We're builders at heart. We love what we do, and that shows in the work.</li></ul><h2>Let's build something great together.</h2><p>Email: <a href="mailto:contactkrasis@gmail.com">contactkrasis@gmail.com</a><br>Instagram: <a href="https://www.instagram.com/krasis0">@krasis0</a><br>Location: Pune, India</p></div>
+    <!-- SEO:END -->
+  </main>
 
   <!-- Page transition panel -->
   <div class="transition" id="transition" aria-hidden="true">
@@ -122,7 +142,7 @@
   <!--
     Script order (all classic + deferred, executed in this order):
     1. Vendor: GSAP core, ScrollTrigger, CustomEase, Lenis
-    2. Config + data: config.js, data/copy.js, data/projects.js
+    2. Config + data: config.js, data/seo.js, data/copy.js, data/projects.js
     3. Core helpers: utils.js (namespace, split text, reveals), ui.js (shared markup)
     4. Global systems: smooth-scroll, cursor, nav, preloader, squares, grid-lines, form
     5. Home sections: hero.js + sections/*
@@ -134,43 +154,44 @@
   <script defer src="./assets/vendor/CustomEase.min.js"></script>
   <script defer src="./assets/vendor/lenis.min.js"></script>
 
-  <script defer src="./js/config.js?v=15"></script>
-  <script defer src="./js/data/copy.js?v=15"></script>
-  <script defer src="./js/data/projects.js?v=15"></script>
+  <script defer src="./js/config.js?v=16"></script>
+  <script defer src="./js/data/seo.js?v=16"></script>
+  <script defer src="./js/data/copy.js?v=16"></script>
+  <script defer src="./js/data/projects.js?v=16"></script>
 
-  <script defer src="./js/utils.js?v=15"></script>
-  <script defer src="./js/reveal.js?v=15"></script>
-  <script defer src="./js/ui.js?v=15"></script>
+  <script defer src="./js/utils.js?v=16"></script>
+  <script defer src="./js/reveal.js?v=16"></script>
+  <script defer src="./js/ui.js?v=16"></script>
 
-  <script defer src="./js/smooth-scroll.js?v=15"></script>
-  <script defer src="./js/cursor.js?v=15"></script>
-  <script defer src="./js/nav.js?v=15"></script>
-  <script defer src="./js/preloader.js?v=15"></script>
-  <script defer src="./js/squares.js?v=15"></script>
-  <script defer src="./js/grid-lines.js?v=15"></script>
-  <script defer src="./js/form.js?v=15"></script>
+  <script defer src="./js/smooth-scroll.js?v=16"></script>
+  <script defer src="./js/cursor.js?v=16"></script>
+  <script defer src="./js/nav.js?v=16"></script>
+  <script defer src="./js/preloader.js?v=16"></script>
+  <script defer src="./js/squares.js?v=16"></script>
+  <script defer src="./js/grid-lines.js?v=16"></script>
+  <script defer src="./js/form.js?v=16"></script>
 
-  <script defer src="./js/hero.js?v=15"></script>
-  <script defer src="./js/sections/problem.js?v=15"></script>
-  <script defer src="./js/sections/intro.js?v=15"></script>
-  <script defer src="./js/sections/vision.js?v=15"></script>
-  <script defer src="./js/sections/work.js?v=15"></script>
-  <script defer src="./js/sections/process.js?v=15"></script>
-  <script defer src="./js/sections/included.js?v=15"></script>
-  <script defer src="./js/sections/pricing.js?v=15"></script>
-  <script defer src="./js/sections/why.js?v=15"></script>
-  <script defer src="./js/sections/cta.js?v=15"></script>
+  <script defer src="./js/hero.js?v=16"></script>
+  <script defer src="./js/sections/problem.js?v=16"></script>
+  <script defer src="./js/sections/intro.js?v=16"></script>
+  <script defer src="./js/sections/vision.js?v=16"></script>
+  <script defer src="./js/sections/work.js?v=16"></script>
+  <script defer src="./js/sections/process.js?v=16"></script>
+  <script defer src="./js/sections/included.js?v=16"></script>
+  <script defer src="./js/sections/pricing.js?v=16"></script>
+  <script defer src="./js/sections/why.js?v=16"></script>
+  <script defer src="./js/sections/cta.js?v=16"></script>
 
-  <script defer src="./js/pages/home.js?v=15"></script>
-  <script defer src="./js/pages/work.js?v=15"></script>
-  <script defer src="./js/pages/services.js?v=15"></script>
-  <script defer src="./js/pages/process.js?v=15"></script>
-  <script defer src="./js/pages/pricing.js?v=15"></script>
-  <script defer src="./js/pages/about.js?v=15"></script>
-  <script defer src="./js/pages/contact.js?v=15"></script>
-  <script defer src="./js/pages/notfound.js?v=15"></script>
+  <script defer src="./js/pages/home.js?v=16"></script>
+  <script defer src="./js/pages/work.js?v=16"></script>
+  <script defer src="./js/pages/services.js?v=16"></script>
+  <script defer src="./js/pages/process.js?v=16"></script>
+  <script defer src="./js/pages/pricing.js?v=16"></script>
+  <script defer src="./js/pages/about.js?v=16"></script>
+  <script defer src="./js/pages/contact.js?v=16"></script>
+  <script defer src="./js/pages/notfound.js?v=16"></script>
 
-  <script defer src="./js/router.js?v=15"></script>
-  <script defer src="./js/main.js?v=15"></script>
+  <script defer src="./js/router.js?v=16"></script>
+  <script defer src="./js/main.js?v=16"></script>
 </body>
 </html>

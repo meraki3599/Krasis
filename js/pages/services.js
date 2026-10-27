@@ -1,5 +1,5 @@
 /*
-  pages/services.js — Services (#/services): the four specialisms as full-height chapters
+  pages/services.js — Services (/services/): the four specialisms as full-height chapters
   (counter, hairline, what it means in practice, tools), then a CTA.
   Depends on: utils.js, ui.js, data/copy.js.
 */
@@ -28,8 +28,6 @@
   var tools = ["GSAP", "WebGL", "Figma", "Modern web standards"];
 
   K.pages.services = {
-    title: "Services | Krasis",
-    description: "Custom website design and development, immersive scroll animation, responsive builds and end-to-end delivery from Krasis.",
     render: function () {
       var c = K.copy.intro.services;
       var html = '<section class="page-hero section" aria-labelledby="services-h1">' + K.ui.rule() +
@@ -57,7 +55,7 @@
         '<div class="container grid">' +
         '<h2 class="label c-1-5" id="tools-h">Tools we build with</h2>' +
         '<ul class="tools__list c-1-12 mt-s" data-anim="stagger">' + tools.map(function (t) { return '<li class="h2">' + K.esc(t) + "</li>"; }).join("") + "</ul>" +
-        '<div class="c-1-9 mt-xl" data-anim="fade">' + K.ui.btn("Start a project", "#/contact", { cls: "btn--lg" }) + "</div>" +
+        '<div class="c-1-9 mt-xl" data-anim="fade">' + K.ui.btn("Start a project", K.link("contact"), { cls: "btn--lg" }) + "</div>" +
         "</div></section>";
       return html;
     },

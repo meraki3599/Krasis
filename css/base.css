@@ -126,3 +126,10 @@ h1, h2, h3, h4, p, figure, blockquote { margin: 0; }
 /* Desktop-only manual line breaks in display headlines (see K.brk) */
 .br-d { display: none; }
 @media (min-width: 1024px) { .br-d { display: inline; } }
+
+/* Crawler-readable copy baked into each page's HTML (tools/build-pages.js). With JavaScript on,
+   the live view replaces it on boot; hiding it first stops it flashing unstyled. */
+.js .seo-text { display: none; }
+.seo-text { max-width: 62ch; margin: 0 auto; padding: calc(var(--nav-h) + 48px) var(--margin) 96px; }
+.seo-text h1, .seo-text h2 { color: var(--text); font-weight: 300; line-height: 1.1; margin: 1.4em 0 0.5em; }
+.seo-text a { text-decoration: underline; }

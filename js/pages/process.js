@@ -1,5 +1,5 @@
 /*
-  pages/process.js — Process (#/process): the six steps as a long storytelling page.
+  pages/process.js — Process (/process/): the six steps as a long storytelling page.
   Desktop: a sticky visual (giant outlined numeral + a progress ring that fills across all six steps)
   swaps as each full-height step passes the centre. Mobile: numerals sit inline above each step.
   Depends on: GSAP, ScrollTrigger, utils.js, ui.js, data/copy.js.
@@ -9,8 +9,6 @@
   var R = 46, C = 2 * Math.PI * R;
 
   K.pages.process = {
-    title: "Process | Krasis",
-    description: "Discovery, proposal, design, development, review and launch: the six-step Krasis process. Simple process. Zero guesswork.",
     render: function () {
       var c = K.copy.process;
       var nums = c.steps.map(function (s, i) {
@@ -40,7 +38,7 @@
         "</div></section>" +
         '<section class="section"><div class="container grid">' +
         '<p class="h2 c-1-9" data-anim="lines">Ready when you are.</p>' +
-        '<div class="c-1-9 mt-m" data-anim="fade">' + K.ui.btn("Start with a conversation", "#/contact", { cls: "btn--lg" }) + "</div>" +
+        '<div class="c-1-9 mt-m" data-anim="fade">' + K.ui.btn("Start with a conversation", K.link("contact"), { cls: "btn--lg" }) + "</div>" +
         "</div></section>";
     },
     mount: function (root) {

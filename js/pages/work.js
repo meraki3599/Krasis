@@ -1,5 +1,5 @@
 /*
-  pages/work.js — Work index (#/work): giant title, category filters, editorial list rows with a floating
+  pages/work.js — Work index (/work/): giant title, category filters, editorial list rows with a floating
   preview of the client logo that follows the cursor (fine pointers only). Rows are not links.
   Depends on: GSAP, utils.js, ui.js, data/projects.js.
 */
@@ -13,8 +13,6 @@
   }
 
   K.pages.work = {
-    title: "Work | Krasis",
-    description: "Selected websites by Krasis: cinematic hospitality sites for 1BHK, 2BHK and Ballr, plus retail and brand builds.",
     render: function () {
       var filters = FILTERS.map(function (f, i) {
         return '<li><button type="button" class="filter label' + (i === 0 ? " is-active" : "") + '" data-filter="' + f + '" aria-pressed="' + (i === 0) + '">' + f + "</button></li>";

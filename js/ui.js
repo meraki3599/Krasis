@@ -69,7 +69,7 @@
         '<p class="plan__price" aria-label="' + esc("₹" + K.inr(p.price) + " (see footnote)") + '">₹<span data-anim="count" data-count="' + p.price + '">' + K.inr(p.price) + "</span>/-<sup>*</sup></p>" +
         (p.note ? '<p class="plan__note">' + esc(p.note) + "</p>" : "") +
         '<ul class="plan__list">' + items + "</ul>" +
-        '<div class="plan__cta">' + ui.btn(p.cta, "#/contact?plan=" + p.id, { cls: p.id === "premium" ? "" : "btn--ghost" }) + "</div>" +
+        '<div class="plan__cta">' + ui.btn(p.cta, K.link("contact", "plan=" + p.id), { cls: p.id === "premium" ? "" : "btn--ghost" }) + "</div>" +
         "</article>";
     }).join("") + "</div>" +
     '<p class="footnote">' + esc(c.footnote) + "</p>";
@@ -86,7 +86,7 @@
   ui.footer = function (compact) {
     var cfg = K.config;
     var links = ["Work", "Services", "Pricing", "About", "Contact"].map(function (l) {
-      return '<a href="#/' + l.toLowerCase() + '">' + l + "</a>";
+      return '<a href="' + K.link(l.toLowerCase()) + '">' + l + "</a>";
     }).join("");
     // Compact footer (Home): the final CTA section already carries the headline
     return '<footer class="footer' + (compact ? " footer--compact" : "") + '" data-footer>' +

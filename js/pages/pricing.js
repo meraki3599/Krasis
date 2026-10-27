@@ -1,5 +1,5 @@
 /*
-  pages/pricing.js — Pricing (#/pricing): the two plan panels (larger) and a plan comparison table
+  pages/pricing.js — Pricing (/pricing/): the two plan panels (larger) and a plan comparison table
   (SVG star = included, thin dash = not included), the single footnote and a closing CTA.
   Depends on: GSAP, utils.js, ui.js, data/copy.js.
 */
@@ -7,8 +7,6 @@
   K.pages = K.pages || {};
 
   K.pages.pricing = {
-    title: "Pricing | Krasis",
-    description: "Transparent pricing. Standard ₹20,000 or Premium ₹25,000 for a fully custom website from Krasis.",
     render: function () {
       var c = K.copy.pricing;
       var std = c.plans[0], pre = c.plans[1];
@@ -37,7 +35,7 @@
         "</table></div>" +
         '<p class="footnote">' + K.esc(c.footnote) + "</p>" +
         '<div class="mt-l grid"><p class="h3 c-1-7" data-anim="lines">Pick a plan, or tell us what you need and we\'ll point you to the right one.</p>' +
-        '<div class="c-1-7 mt-m" data-anim="fade">' + K.ui.btn("Start a project", "#/contact", { cls: "btn--lg" }) + "</div></div>" +
+        '<div class="c-1-7 mt-m" data-anim="fade">' + K.ui.btn("Start a project", K.link("contact"), { cls: "btn--lg" }) + "</div></div>" +
         "</div></section>";
     },
     mount: function (root) {

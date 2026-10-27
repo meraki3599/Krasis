@@ -8,7 +8,7 @@
 
   function build() {
     list.innerHTML = K.copy.nav.map(function (item, i) {
-      return '<li class="menu__item"><a class="menu__link" href="' + item.href + '"><small>' + K.pad(i + 1) + "</small>" + item.label + "</a></li>";
+      return '<li class="menu__item"><a class="menu__link" href="' + K.link(item.route) + '" data-route="' + item.route + '"><small>' + K.pad(i + 1) + "</small>" + item.label + "</a></li>";
     }).join("");
     K.$$(".menu__link", list).forEach(function (a) {
       a.addEventListener("mouseenter", function () { list.classList.add("is-hovering"); });
@@ -69,10 +69,9 @@
     gsap.to(nav, { yPercent: 0, duration: 0.6, ease: "kOut" });
   }
 
-  function setActive(path) {
+  function setActive(page) {
     K.$$(".menu__link", list).forEach(function (a) {
-      var href = a.getAttribute("href").slice(1);
-      var on = href === "/" ? path === "/" : path.indexOf(href) === 0;
+      var on = (a.getAttribute("data-route") || "home") === page;
       a.classList.toggle("is-active", on);
       if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
@@ -103,7 +102,7 @@
       else if (s.dir > 0) hideBar();
       else showBar();
     });
-    K.on("route", function (r) { setActive(r.path); showBar(); });
+    K.on("route", function (r) { setActive(r.page); showBar(); });
   }
 
   K.nav = { init: init, open: open, close: close, show: showBar };
