@@ -10,7 +10,7 @@
   var CARD = "assets/logos/krasis-square.png"; // the same image used in hero-parallax-react.html
 
   function card() {
-    return '<div class="hcard"><img src="./' + CARD + '" alt="" width="600" height="600" decoding="async"></div>';
+    return '<div class="hcard"><img src="' + K.asset(CARD) + '" alt="" width="600" height="600" decoding="async"></div>';
   }
   function row(cls) {
     var html = "";

@@ -13,7 +13,7 @@
     var style = opts.filter ? ' style="filter:' + esc(opts.filter) + '"' : "";
     var size = opts.w ? ' width="' + opts.w + '" height="' + opts.h + '"' : "";
     return '<span class="logo ' + (opts.cls || "") + '"' + (opts.unit ? " data-unit" : "") + ">" +
-      '<img src="./' + esc(src) + '" alt="' + esc(alt) + '"' + size + style +
+      '<img src="' + esc(K.asset(src)) + '" alt="' + esc(alt) + '"' + size + style +
       (opts.lazy ? ' loading="lazy" decoding="async"' : "") +
       ' onerror="KRASIS.ui.missing(this)" data-src="' + esc(src) + '"></span>';
   };

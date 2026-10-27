@@ -108,6 +108,8 @@
   // On a web server every page has a real address (/about/); opened from disk (file://) the site
   // falls back to hash addresses (#/about) so double-clicking index.html still works.
   K.pathMode = /^https?:$/.test(location.protocol);
+  // Asset paths built in JavaScript must not depend on the current page's folder (/about/ vs /)
+  K.asset = function (p) { return (K.pathMode ? "/" : "./") + p; };
   // K.link("contact", "plan=premium") → "/contact/?plan=premium" or "#/contact?plan=premium"
   K.link = function (route, query) {
     route = route || "";
