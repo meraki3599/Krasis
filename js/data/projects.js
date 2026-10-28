@@ -19,7 +19,7 @@
       logoFilter: "grayscale(1) brightness(1.5) contrast(1.1)",
       category: "Hospitality",
       type: "Cinematic hospitality website",
-      year: ph("2026"),
+      year: "2026",
       services: ["Design", "Development", "Scroll animation"],
       lead: true
     },
@@ -31,7 +31,7 @@
       logoFilter: "grayscale(1) brightness(1.5) contrast(1.1)",
       category: "Hospitality",
       type: "Cinematic hospitality website",
-      year: ph("2026"),
+      year: "2026",
       services: ["Design", "Development", "Scroll animation"],
       lead: true
     },
@@ -43,7 +43,7 @@
       logoFilter: "grayscale(1) brightness(2.4)",
       category: "Hospitality",
       type: "Cinematic hospitality website",
-      year: ph("2026"),
+      year: "2026",
       services: ["Design", "Development", "Scroll animation"],
       lead: true
     },
@@ -55,8 +55,8 @@
       // The supplied artwork is light-filled with dark outlines; inverting keeps the outlines readable on black.
       logoFilter: "grayscale(1) invert(1) contrast(1.6) brightness(1.5)",
       category: "Retail",
-      type: ph("Retail website"),
-      year: ph("2026"),
+      type: "Retail website",
+      year: "2026",
       services: ["Design", "Development", "Responsive build"]
     },
     {
@@ -67,8 +67,8 @@
       // The supplied artwork is dark on light; inverting turns it light on the black site
       logoFilter: "grayscale(1) invert(1) brightness(0.92)",
       category: "Retail",
-      type: ph("Candle brand website"),
-      year: ph("2026"),
+      type: "Candle brand website",
+      year: "2026",
       services: ["Design", "Development"]
     }
   ];
