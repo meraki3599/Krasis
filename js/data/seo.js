@@ -39,7 +39,7 @@
     contact: {
       path: "contact",
       title: "Contact Krasis | Start Your Website Project",
-      description: "Start a website project with Krasis, a web design studio in Pune. Email contactkrasis@gmail.com or send an enquiry and we'll reply within 24 hours."
+      description: "Start a website project with Krasis, a web design studio in Pune. Email contact@krasis.in or send an enquiry and we'll reply within 24 hours."
     },
     notfound: {
       path: null,

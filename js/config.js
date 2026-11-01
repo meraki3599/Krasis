@@ -17,7 +17,7 @@ window.KRASIS.config = {
   // Leave both empty to fall back to a prefilled mailto: link.
   formEndpoint: "",
 
-  email: "contactkrasis@gmail.com",
+  email: "contact@krasis.in",
   instagram: "krasis0",
   location: "Pune, India",
   replyLine: "We reply within 24 hours", // placeholder, edit freely
