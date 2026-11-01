@@ -103,6 +103,7 @@ html.hide-ph .ph-tag { display: none; }
 .btn:hover .btn__dot, .btn:focus-visible .btn__dot { opacity: 1; }
 .btn--lg { min-height: 72px; padding: 0 40px; font-size: 0.82rem; }
 .btn--ghost { border-color: var(--line-strong); color: var(--text); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 14px; }
 
 .link-draw { position: relative; display: inline-block; }
 .link-draw::after {

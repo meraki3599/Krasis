@@ -34,8 +34,8 @@
         '<tfoot><tr><th scope="row">Price</th><td>₹' + K.inr(std.price) + "/-*</td><td>₹" + K.inr(pre.price) + "/-*</td></tr></tfoot>" +
         "</table></div>" +
         '<p class="footnote">' + K.esc(c.footnote) + "</p>" +
-        '<div class="mt-l grid"><p class="h3 c-1-7" data-anim="lines">Pick a plan, or tell us what you need and we\'ll point you to the right one.</p>' +
-        '<div class="c-1-7 mt-m" data-anim="fade">' + K.ui.btn("Start a project", K.link("contact"), { cls: "btn--lg" }) + "</div></div>" +
+        '<div class="mt-l grid"><p class="h3 c-1-7" data-anim="lines">Pick a plan and add what you need, or tell us about your project and we\'ll point you to the right one.</p>' +
+        '<div class="c-1-7 mt-m" data-anim="fade">' + K.ui.ctaPair() + "</div></div>" +
         "</div></section>";
     },
     mount: function (root) {

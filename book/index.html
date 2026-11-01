@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Book Your Website | Krasis, Web Design Studio in Pune</title>
+  <meta name="description" content="Book your Krasis website: choose a package, add the extras you need and watch your price update live. Send your quote and we'll confirm within 24 hours.">
+  <link rel="canonical" href="https://krasis.in/book/">
+  <meta name="theme-color" content="#0e0e0e">
+  <link rel="icon" type="image/png" href="/assets/og/favicon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Book Your Website | Krasis">
+  <meta property="og:url" content="https://krasis.in/book/">
+  <meta property="og:description" content="Choose a package, add what you need and watch your price update live.">
+  <meta property="og:image" content="https://krasis.in/assets/og/og-card.png">
+  <link rel="preload" href="/assets/fonts/montserrat-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/book.css?v=2">
+  <script>document.documentElement.className = "js";</script>
+</head>
+<body>
+  <a class="skip" href="#step-1">Skip to the quote builder</a>
+
+  <div class="curtain" aria-hidden="true"><img class="curtain__logo" src="/assets/logos/krasis.png" alt="" width="840" height="235"></div>
+
+  <header class="hdr">
+    <a class="hdr__logo" href="/" aria-label="Krasis home"><img src="/assets/logos/krasis.png" alt="Krasis" width="840" height="235"></a>
+    <nav class="hdr__mid label" aria-label="Site"><a class="link-draw" href="/work/">Work</a><a class="link-draw" href="/pricing/">Pricing</a><a class="link-draw" href="/contact/">Contact</a></nav>
+    <div class="hdr__prog">
+      <button class="hdr__reset label" type="button" id="resetBtn" aria-label="Reset your quote"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8a5.5 5.5 0 1 0 1.7-4M2.5 2.5v3.5H6" fill="none" stroke="currentColor" stroke-width="1.3"/></svg><span class="hdr__reset-txt">Reset</span></button>
+      <span class="label hdr__step" id="stepNum">00 / 04</span>
+      <span class="hdr__bar" aria-hidden="true"><i id="progBar"></i></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="bands" aria-hidden="true"><span class="band band--a"></span><span class="band band--b"></span><span class="band band--c"></span></div>
+      <span class="plus plus--tl" aria-hidden="true"></span><span class="plus plus--tr plus--accent" aria-hidden="true"></span>
+      <div class="container hero__inner">
+        <p class="label hero__eyebrow" data-hero><span class="dot"></span>Krasis — Book now</p>
+        <h1 class="hero__title">
+          <span class="line"><span>Build your</span></span>
+          <span class="line serif"><span>website.</span></span>
+        </h1>
+        <p class="hero__lead" data-hero>Choose a package, add exactly what you need and watch your price update live. Everything in your package is guaranteed. No hidden fees.</p>
+        <div class="hero__row" data-hero>
+          <a class="btn btn--lg" href="#step-1" data-scroll><span>Start building</span><svg class="btn__arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="btn__dot"></span></a>
+          <dl class="hero__stats">
+            <div><dt class="label">Packages</dt><dd id="statPkgs">02</dd></div>
+            <div><dt class="label">Add-ons</dt><dd id="statAddons">00</dd></div>
+            <div><dt class="label">Hidden fees</dt><dd>00</dd></div>
+          </dl>
+        </div>
+      </div>
+      <span class="hero__scroll label" aria-hidden="true">Scroll</span>
+    </section>
+
+    <div class="container layout">
+      <form class="steps" id="quote" novalidate>
+        <section class="step" id="step-1" data-step="1" aria-labelledby="t1">
+          <header class="step__head">
+            <span class="label step__n">01 — Package</span>
+            <h2 class="step__title" id="t1"><span class="line"><span>Choose your</span></span><span class="line serif"><span>package.</span></span></h2>
+            <p class="step__lead">Every feature listed is guaranteed in your build.</p>
+          </header>
+          <div class="pkgs" id="packages" role="radiogroup" aria-label="Packages"></div>
+        </section>
+
+        <section class="step" id="step-2" data-step="2" aria-labelledby="t2">
+          <header class="step__head">
+            <span class="label step__n">02 — Add-ons</span>
+            <h2 class="step__title" id="t2"><span class="line"><span>Add what</span></span><span class="line serif"><span>you need.</span></span></h2>
+            <p class="step__lead">All optional. Your total updates as you go.</p>
+          </header>
+          <nav class="cats" id="cats" aria-label="Add-on categories"><span class="cats__ind" aria-hidden="true"></span></nav>
+          <div id="catBlocks"></div>
+        </section>
+
+        <section class="step" id="step-3" data-step="3" aria-labelledby="t3">
+          <header class="step__head">
+            <span class="label step__n">03 — Timeline</span>
+            <h2 class="step__title" id="t3"><span class="line"><span>How soon do</span></span><span class="line serif"><span>you need it?</span></span></h2>
+          </header>
+          <div class="times" id="timelines" role="radiogroup" aria-label="Timeline"></div>
+        </section>
+
+        <section class="step" id="step-4" data-step="4" aria-labelledby="t4">
+          <header class="step__head">
+            <span class="label step__n">04 — Details</span>
+            <h2 class="step__title" id="t4"><span class="line"><span>Where should</span></span><span class="line serif"><span>we send it?</span></span></h2>
+            <p class="step__lead">We'll reply within 24 hours to confirm your quote and next steps.</p>
+          </header>
+          <div class="fields">
+            <div class="field"><input id="f-name" name="name" type="text" autocomplete="name" placeholder=" " required><label for="f-name">Your name *</label><span class="field__err" aria-live="polite"></span></div>
+            <div class="field"><input id="f-email" name="email" type="email" autocomplete="email" placeholder=" " required><label for="f-email">Email *</label><span class="field__err" aria-live="polite"></span></div>
+            <div class="field"><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder=" "><label for="f-phone">Phone or WhatsApp</label></div>
+            <div class="field"><input id="f-brand" name="brand" type="text" autocomplete="organization" placeholder=" "><label for="f-brand">Business / brand name</label></div>
+            <div class="field field--full"><textarea id="f-notes" name="notes" rows="4" placeholder=" "></textarea><label for="f-notes">Anything else we should know?</label></div>
+            <div class="hp" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+          </div>
+          <div class="submit-row">
+            <button class="btn btn--lg btn--solid" type="submit" id="submitBtn"><span class="btn__label">Send my quote</span><svg class="btn__arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="btn__dot"></span></button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </div>
+        </section>
+      </form>
+
+      <aside class="summary" id="summary" aria-label="Your quote">
+        <div class="summary__inner">
+          <div class="summary__head">
+            <span class="label">Your quote</span>
+            <span class="label summary__ref" id="ref"></span>
+            <button class="summary__close" type="button" id="sheetClose" aria-label="Close quote">×</button>
+          </div>
+          <div class="summary__pkg" id="sPkg"></div>
+          <ul class="summary__list" id="sList"></ul>
+          <div class="summary__rule"></div>
+          <div class="summary__total">
+            <span class="label">One-time total</span>
+            <div class="odo odo--xl" id="total" aria-live="polite"></div>
+          </div>
+          <div class="summary__monthly" id="sMonthly"></div>
+          <div class="summary__deposit"><span>Pay to confirm</span><strong id="sDeposit"></strong></div>
+          <p class="summary__fine" id="sFine"></p>
+          <div class="summary__actions">
+            <a class="btn summary__cta" href="#step-4" data-scroll><span>Continue</span><svg class="btn__arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="btn__dot"></span></a>
+            <button class="link-draw summary__copy label" type="button" id="copyBtn">Copy quote</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="foot container">
+      <a class="foot__logo" href="/" aria-label="Krasis home"><img class="foot__mark" src="/assets/logos/krasis.png" alt="Krasis" width="840" height="235" loading="lazy"></a>
+      <div class="foot__row label">
+        <a class="link-draw" href="/">Home</a>
+        <a class="link-draw" href="/work/">Work</a>
+        <a class="link-draw" href="/pricing/">Pricing</a>
+        <a class="link-draw" href="/contact/">Contact</a>
+        <a class="link-draw" id="footMail" href="mailto:contact@krasis.in">contact@krasis.in</a>
+        <span>© 2026 Krasis. Pune, India</span>
+      </div>
+    </footer>
+  </main>
+
+  <div class="mbar" id="mbar">
+    <div class="mbar__total"><span class="label">Total</span><div class="odo" id="mTotal"></div></div>
+    <button class="btn btn--solid mbar__btn" type="button" id="sheetOpen"><span>View quote</span></button>
+  </div>
+  <div class="scrim" id="scrim"></div>
+
+  <div class="done" id="done" hidden tabindex="-1" role="dialog" aria-labelledby="doneTitle">
+    <div class="done__panel"></div>
+    <div class="done__inner container">
+      <p class="label done__ref" id="doneRef"></p>
+      <h2 class="done__title" id="doneTitle"><span class="line"><span>Quote</span></span><span class="line serif"><span>sent.</span></span></h2>
+      <p class="done__lead" id="doneLead"></p>
+      <div class="done__row">
+        <a class="btn btn--lg" href="/"><span>Back to krasis.in</span><svg class="btn__arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="btn__dot"></span></a>
+        <button class="link-draw label" type="button" id="againBtn">Start a new quote</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="upsell" id="upsell" hidden>
+    <div class="upsell__panel" role="dialog" aria-modal="true" aria-labelledby="upsellTitle" aria-describedby="upsellBody">
+      <span class="plus plus--accent upsell__plus" aria-hidden="true"></span>
+      <p class="label upsell__eyebrow"><span class="dot"></span>A better deal</p>
+      <h2 class="upsell__title" id="upsellTitle"><span class="line"><span>Switch to Premium,</span></span><span class="line serif"><span>save <span id="upsellSave">₹5,000</span>.</span></span></h2>
+      <p class="upsell__body" id="upsellBody"></p>
+      <div class="upsell__row">
+        <button class="btn btn--lg btn--solid" type="button" id="upsellSwitch"><span id="upsellSwitchLabel">Switch to Premium</span><svg class="btn__arrow" viewBox="0 0 16 10" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="btn__dot"></span></button>
+        <button class="link-draw label upsell__keep" type="button" id="upsellKeep">Keep Standard</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script defer src="/assets/vendor/gsap.min.js"></script>
+  <script defer src="/assets/vendor/ScrollTrigger.min.js"></script>
+  <script defer src="/assets/vendor/CustomEase.min.js"></script>
+  <script defer src="/assets/vendor/lenis.min.js"></script>
+  <script defer src="/js/book/data.js?v=1"></script>
+  <script defer src="/js/book/app.js?v=1"></script>
+</body>
+</html>

@@ -54,6 +54,12 @@
       '<span class="btn__dot" aria-hidden="true"></span><span>' + esc(label) + "</span>" + ui.arrow() + "</a>";
   };
 
+  // Primary "Book now" (the quote builder) beside a quieter "Enquire" (the contact form)
+  ui.ctaPair = function () {
+    return '<div class="btn-row">' + ui.btn("Book now", K.link("book"), { cls: "btn--lg" }) +
+      ui.btn("Enquire", K.link("contact"), { cls: "btn--lg btn--ghost" }) + "</div>";
+  };
+
   // ---------- Pricing panels ----------
   ui.plans = function (opts) {
     opts = opts || {};
@@ -69,7 +75,7 @@
         '<p class="plan__price" aria-label="' + esc("₹" + K.inr(p.price) + " (see footnote)") + '">₹<span data-anim="count" data-count="' + p.price + '">' + K.inr(p.price) + "</span>/-<sup>*</sup></p>" +
         (p.note ? '<p class="plan__note">' + esc(p.note) + "</p>" : "") +
         '<ul class="plan__list">' + items + "</ul>" +
-        '<div class="plan__cta">' + ui.btn(p.cta, K.link("contact", "plan=" + p.id), { cls: p.id === "premium" ? "" : "btn--ghost" }) + "</div>" +
+        '<div class="plan__cta">' + ui.btn(p.cta, K.link("book", "plan=" + p.id), { cls: p.id === "premium" ? "" : "btn--ghost" }) + "</div>" +
         "</article>";
     }).join("") + "</div>" +
     '<p class="footnote">' + esc(c.footnote) + "</p>";
@@ -87,7 +93,7 @@
     var cfg = K.config;
     var links = ["Work", "Services", "Pricing", "About", "Contact"].map(function (l) {
       return '<a href="' + K.link(l.toLowerCase()) + '">' + l + "</a>";
-    }).join("");
+    }).join("") + '<a href="' + K.link("book") + '">Book now</a>';
     // Compact footer (Home): the final CTA section already carries the headline
     return '<footer class="footer' + (compact ? " footer--compact" : "") + '" data-footer>' +
       '<div class="container">' +

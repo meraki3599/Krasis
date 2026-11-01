@@ -118,7 +118,7 @@ built.push("index.html");
 
 Object.keys(seo).forEach((page) => {
   const s = seo[page];
-  if (page === "home" || s.path === null) return;
+  if (page === "home" || s.path === null || s.standalone) return;
   const out = rebase(setBody(setMeta(template, page), page), "../");
   write(`${s.path}/index.html`, out);
   built.push(`${s.path}/index.html`);

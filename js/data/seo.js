@@ -41,6 +41,12 @@
       title: "Contact Krasis | Start Your Website Project",
       description: "Start a website project with Krasis, a web design studio in Pune. Email contact@krasis.in or send an enquiry and we'll reply within 24 hours."
     },
+    book: {
+      path: "book",
+      standalone: true, // book/index.html is its own page (the quote builder); build-pages.js only lists it in the sitemap
+      title: "Book Your Website | Krasis, Web Design Studio in Pune",
+      description: "Book your Krasis website: choose a package, add the extras you need and watch your price update live. Send your quote and we'll confirm within 24 hours."
+    },
     notfound: {
       path: null,
       title: "Page not found | Krasis",

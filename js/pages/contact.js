@@ -41,6 +41,9 @@
         '<div><p class="label">Instagram</p><a class="contact__big link-draw ig" href="https://www.instagram.com/' + K.esc(cfg.instagram) + '" target="_blank" rel="noopener">' + K.ui.igIcon() + K.esc(cfg.instagram) + "</a></div>" +
         '<div><p class="label">Location</p><p class="contact__big">' + K.esc(cfg.location) + "</p></div>" +
         '<p class="mute">' + K.esc(cfg.replyLine) + "</p>" +
+        '<div class="contact__book"><p class="label">Know what you need?</p>' +
+        '<p class="contact__book-text">Choose a package, add extras and see your price live, then book in a few minutes.</p>' +
+        K.ui.btn("Book now", K.link("book"), { cls: "" }) + "</div>" +
         "</aside>" +
         '<div class="c-6-12">' +
         '<form class="form" novalidate aria-label="Project enquiry">' +

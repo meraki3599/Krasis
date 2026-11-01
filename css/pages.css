@@ -358,6 +358,8 @@
 /* ======================= CONTACT ======================= */
 .contact__grid { align-items: start; row-gap: 72px; }
 .contact__info > * + * { margin-top: 32px; }
+.contact__book { padding: 28px; border: 1px solid var(--line); border-radius: var(--r-media); background: var(--bg-raised); }
+.contact__book-text { margin: 10px 0 22px; color: var(--text-body); }
 .contact__big { display: inline-flex; margin-top: 8px; font-size: var(--fs-lead); font-weight: 300; color: var(--text); letter-spacing: -0.01em; text-align: left; }
 .form { display: grid; gap: 40px; }
 .field { position: relative; padding-top: 22px; }

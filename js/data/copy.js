@@ -36,7 +36,8 @@
       { label: "Process", route: "process" },
       { label: "Pricing", route: "pricing" },
       { label: "About", route: "about" },
-      { label: "Contact", route: "contact" }
+      { label: "Contact", route: "contact" },
+      { label: "Book now", route: "book" }
     ],
 
     hero: {
