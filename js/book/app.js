@@ -252,23 +252,23 @@
     $("#packages").addEventListener("change", (e) => {
       if (e.target.name !== "package") return;
       const first = !state.pkg;
-      const hadAll = allPremiumOnStandard();
+      const hadCount = premiumOnStandard();
       state.pkg = e.target.value;
       update({ pkgChanged: true });
       if (first) fly($(".pkg__price", e.target.closest(".pkg")), pkgById(state.pkg).price);
-      if (!hadAll && allPremiumOnStandard()) setTimeout(showUpsell, reduced ? 0 : 700);
+      if (shouldUpsell(hadCount)) setTimeout(showUpsell, reduced ? 0 : 700);
     });
 
     $("#catBlocks").addEventListener("change", (e) => {
       const input = e.target;
       if (input.type !== "checkbox") return;
       const it = items[input.value];
-      const hadAll = allPremiumOnStandard();
+      const hadCount = premiumOnStandard();
       state.items[it.id] = input.checked ? 1 : 0;
       if (!state.items[it.id]) delete state.items[it.id];
       update();
       if (input.checked) fly($("[data-price]", input.closest(".item")), it.price);
-      if (!hadAll && allPremiumOnStandard()) setTimeout(showUpsell, reduced ? 0 : 1100);
+      if (shouldUpsell(hadCount)) setTimeout(showUpsell, reduced ? 0 : 1100);
     });
 
     $("#upsellSwitch").addEventListener("click", () => {
@@ -277,7 +277,7 @@
       premiumItems.forEach((it) => { delete state.items[it.id]; });
       update({ pkgChanged: true });
       hideUpsell();
-      toast("Switched to Premium. You saved " + inr(saving) + ".");
+      toast(saving > 0 ? "Switched to Premium. You saved " + inr(saving) + "." : "Switched to Premium. Same price, more included.");
     });
     $("#upsellKeep").addEventListener("click", hideUpsell);
     $("#upsell").addEventListener("click", (e) => { if (e.target.id === "upsell") hideUpsell(); });
@@ -350,23 +350,29 @@
   }
 
   // ---------- "Switch to Premium" suggestion ----------
-  // Premium's extras are also sold to Standard customers; once a Standard quote has all of them,
-  // Premium is cheaper, so we say so.
+  // Premium's extras are also sold to Standard customers; once a Standard quote has UPSELL_AT or more
+  // of them, Premium costs the same or less, so we say so (again each time another one is added).
+  const UPSELL_AT = 2;
   const premiumItems = Object.keys(items).map((id) => items[id]).filter((it) => it.includedIn && it.includedIn.includes("premium"));
-  const allPremiumOnStandard = () => state.pkg === "standard" && premiumItems.length > 0 && premiumItems.every((it) => qtyOf(it.id) > 0);
-  function upsellSaving() {
-    const std = pkgById("standard"), prem = pkgById("premium");
-    return std.price + premiumItems.reduce((sum, it) => sum + it.price, 0) - prem.price;
-  }
+  const chosenPremium = () => premiumItems.filter((it) => qtyOf(it.id) > 0);
+  const premiumOnStandard = () => (state.pkg === "standard" ? chosenPremium().length : 0);
+  const shouldUpsell = (before) => { const now = premiumOnStandard(); return now >= UPSELL_AT && now > before; };
+  const standardWithPremium = () => pkgById("standard").price + chosenPremium().reduce((sum, it) => sum + it.price, 0);
+  const upsellSaving = () => standardWithPremium() - pkgById("premium").price;
+  const listNames = (arr) => arr.length < 2 ? arr.join("") : arr.slice(0, -1).join(", ") + " and " + arr[arr.length - 1];
   let upsellFocus = null;
   function showUpsell() {
-    if (!allPremiumOnStandard()) return;
+    if (premiumOnStandard() < UPSELL_AT) return;
     const saving = upsellSaving();
-    if (saving <= 0) return;
+    if (saving < 0) return;
     const std = pkgById("standard"), prem = pkgById("premium");
-    $("#upsellSave").textContent = inr(saving);
-    $("#upsellBody").textContent = "You've added all " + premiumItems.length + " Premium features to " + std.name + ", which comes to " +
-      inr(std.price + premiumItems.reduce((s, it) => s + it.price, 0)) + ". " + prem.name + " includes every one of them for " + inr(prem.price) + ".";
+    const chosen = chosenPremium(), rest = premiumItems.filter((it) => !chosen.includes(it));
+    $("#upsellSave").textContent = saving > 0 ? "save " + inr(saving) + "." : "same price, more included.";
+    $("#upsellBody").textContent = (chosen.length === premiumItems.length
+      ? "You've added all " + premiumItems.length + " Premium features to " + std.name
+      : "You've added " + listNames(chosen.map((it) => it.name)) + " to " + std.name) +
+      ", which comes to " + inr(standardWithPremium()) + ". " + prem.name + " includes " +
+      (rest.length ? "them, plus " + listNames(rest.map((it) => it.name)) + "," : "every one of them") + " for " + inr(prem.price) + ".";
     $("#upsellSwitchLabel").textContent = "Switch to " + prem.name;
     const box = $("#upsell");
     upsellFocus = document.activeElement;
