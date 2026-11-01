@@ -61,9 +61,9 @@ window.QUOTE = {
       name: "Premium features",
       note: "Free with Premium. On Standard, add the ones you want.",
       items: [
-        { id: "updates", name: "Updates forever", desc: "Request any change to your website after launch, forever.", price: 2000, includedIn: ["premium"] },
-        { id: "walkthrough", name: "Comprehensive walkthrough", desc: "A complete guided tour of your website once the work is done.", price: 3000, includedIn: ["premium"] },
-        { id: "priority", name: "Priority pass", desc: "We assist you and build your website on priority.", price: 5000, includedIn: ["premium"] }
+        { id: "updates", name: "Updates forever", desc: "Request any change to your website after launch, forever.", price: 5000, includedIn: ["premium"] },
+        { id: "walkthrough", name: "Comprehensive walkthrough", desc: "A complete guided tour of your website once the work is done.", price: 2000, includedIn: ["premium"] },
+        { id: "priority", name: "Priority pass", desc: "We assist you and build your website on priority.", price: 3000, includedIn: ["premium"] }
       ]
     },
     {
