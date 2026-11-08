@@ -1,12 +1,17 @@
 /*
   sections/vision.js — Home section 04, Vision → Mission.
-  Desktop: the section pins for two viewport heights; Vision holds, Mission wipes up over it (clip-path),
-  then the pull-quote reveals last. Mobile / reduced motion: the panels simply stack with once-only reveals.
+  Desktop (1024px and up): the section pins for two viewport heights; Vision holds, Mission wipes up over it (clip-path),
+  then the pull-quote reveals last. Below 1024px / reduced motion: the panels simply stack with once-only reveals.
   render(opts) is reused on the About page (opts.static skips the pin, opts.counter hides the counter).
   Depends on: GSAP, ScrollTrigger, utils.js, ui.js, data/copy.js.
 */
 (function (K) {
   K.sections = K.sections || {};
+
+  // This section pins only from 1024px, where .vm__panel splits into two columns (css/pages.css).
+  // Below that the text spans the full width, so the pull-quote would land on top of it: stack instead.
+  var MQ_PIN = "(min-width: 1024px) and (prefers-reduced-motion: no-preference)";
+  var MQ_STACK = "(max-width: 1023px), (prefers-reduced-motion: reduce)";
 
   function panel(id, title, text) {
     return '<article class="vm__panel vm__panel--' + id + '" aria-labelledby="vm-' + id + '">' +
@@ -41,7 +46,7 @@
       var isStatic = vm.classList.contains("vm--static");
 
       if (!isStatic) {
-        K.media(K.MQ_MOTION, function () {
+        K.media(MQ_PIN, function () {
           vm.classList.add("is-pinned");
           var tl = gsap.timeline({
             defaults: { ease: "none" },
@@ -60,7 +65,7 @@
       }
 
       // Stacked fallback (mobile, reduced motion, About page)
-      K.media(isStatic ? "all" : K.MQ_STATIC, function () {
+      K.media(isStatic ? "all" : MQ_STACK, function () {
         [vision, mission, quote].forEach(function (el) {
           gsap.fromTo(el, { opacity: 0, y: K.flags.reduced ? 0 : 32 }, {
             opacity: 1, y: 0, duration: K.flags.reduced ? 0.6 : 1.2,
